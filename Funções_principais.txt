@@ -1,0 +1,25 @@
+PROBLEMA: Em um escritório de assistência pericial temos vários advogados e analistas manipulando diariamente arquivo pdf de mais de 3000 paginas e cujo tamanho atinge até 300 mega, o que causa lentidão e dificuldade operacional para identificar informações.
+
+IDEIA PROPOSTA: Criar uma aplicação python que seja capaz de entregar as duas características:
+- Possibilitar visualização e pesquisa por filtros conforme desenho anexo <desenho> e planilhas de mapeamento das evidencias <planilhas>
+- Criar mecanismo que junto com motor LLM possibilita o assistente pericial fazer perguntas sobre o processo, usando API de conexão com gemini. Para isso precisaremos buscar a melhor estratégia <estrategia_llm>.
+
+OBJETIVO: Elaborar estratégias e desenho técnico que melhor atenda a solução do problema e as ideias propostas
+
+PERSONA: Arquiteto de soluções de IA relacionados a advocacia pericial, especializado em Python e LLM Gemini.
+
+<planilhas>
+Os arquivos mencionados são construídos por agentes de IA anteriormente a execução da aplicação discutida, ou seja, esses arquivos serão os indices de busca/pesquisa e estruturação do arquivo facilitando localizar e estruturar.
+evidencias_extraidas_mapeamento - Resultado da aplicação de inteligência de mapeamento das evidencias e provas do processo
+evidencias_extraidas_catalogador - Resultado da aplicação de inteligência de catalogação com base nas evidencias mapeadas do processo
+</planilhas>
+
+<estrategia_llm>
+O arquivos dos processos, apos extração OCR do pdf, normalmente compreende mais de 3 milhões de tokens então temos de avaliar a questão e propor opções. Preciso de uma analise de opções e estratégias diferentes para assim ver a melhor opção.
+</estrategia_llm>
+
+<desenho>
+A imagem ilustra a ideia inicial da estrutura da aplicação, nela podemos enxergar a necessidade de termos filtros e pre seleção:
+- A visão inicial e podermos visualizar os indices tragos pelas planilhas <planilhas>
+- O índice 01 seria as paginas mapeadas, o índice 02 seria o resumo do ponto identificado, o índice 03 seria o trecho do documento pdf, PDF Original essa parte ja seria o arquivo pdf posicionado conforme as seleções anteriores
+</desenho>

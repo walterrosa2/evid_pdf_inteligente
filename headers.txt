@@ -1,0 +1,2 @@
+MAPHeaders:['Tipo de Evidência', 'Trecho', 'Conteúdo', 'Resumo', 'Referência']
+CATHeaders:['id_evidencia', 'origem_tipo', 'trecho', 'referencia', 'chave_nfe', 'cnpj_emitente', 'cnpj_destinatario', 'numero_nf', 'serie', 'data_emissao', 'valor_total', 'cfop', 'documento_ref']

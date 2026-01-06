@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+.venv
+venv/
+ENV/
+env/
+
+# Environment Variables
+.env
+.env.local
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# Project specific data (Excel, PDFs)
+# Ignoring specific large data files in root unrelated to code logic
+*.pdf
+*.xlsx
+# But keep the ones in specific folders if needed? The user has 'evidencias_extraidas*.xlsx' in root.
+# PROPOSAL: Ignore all root xlsx/pdf, allow simple test ones if structured?
+# User's root has "0032109..." pdf and "evidencias..." xlsx. These look like runtime data.
+# We should probably ignore them.
+
+# Backend specific
+backend/static/uploads/

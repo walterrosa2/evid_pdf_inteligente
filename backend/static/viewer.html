@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; background-color: #525659; font-family: sans-serif; }
+        #container { display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .page-wrapper { position: relative; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        canvas { display: block; }
+        .textLayer {
+            position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+            overflow: hidden; opacity: 0.2; line-height: 1.0;
+        }
+        .textLayer > span {
+            color: transparent; position: absolute; white-space: pre; cursor: text;
+            transform-origin: 0% 0%;
+        }
+        .highlight {
+            background-color: rgba(255, 255, 0, 0.5);
+            border-radius: 2px;
+        }
+        #loading { color: white; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="loading">Loading PDF...</div>
+    </div>
+
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const pdfUrl = urlParams.get('file');
+        const targetPage = parseInt(urlParams.get('page') || '1');
+        const highlightText = urlParams.get('highlight');
+
+        if (!pdfUrl) {
+            document.getElementById('loading').textContent = 'No PDF file specified.';
+        } else {
+            loadPDF(pdfUrl);
+        }
+
+        async function loadPDF(url) {
+            try {
+                const loadingTask = pdfjsLib.getDocument(url);
+                const pdf = await loadingTask.promise;
+                document.getElementById('loading').remove();
+                
+                // For MVP, strictly render the requested page only to allow "navigation" via reload/iframe update
+                // Or render all? The requirement says "Open PDF at correct page".
+                // If we want scrolling, we might render targetPage.
+                // Let's render targetPage first.
+                
+                await renderPage(pdf, targetPage);
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('loading').textContent = 'Error loading PDF: ' + error.message;
+            }
+        }
+
+        async function renderPage(pdf, pageNumber) {
+            const container = document.getElementById('container');
+            container.innerHTML = ''; // clear previous
+
+            const page = await pdf.getPage(pageNumber);
+            const scale = 1.5;
+            const viewport = page.getViewport({ scale: scale });
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'page-wrapper';
+            wrapper.style.width = viewport.width + 'px';
+            wrapper.style.height = viewport.height + 'px';
+            container.appendChild(wrapper);
+
+            // Canvas
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            wrapper.appendChild(canvas);
+
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            await page.render(renderContext).promise;
+
+            // Text Layer
+            const textLayerDiv = document.createElement('div');
+            textLayerDiv.className = 'textLayer';
+            textLayerDiv.style.width = viewport.width + 'px';
+            textLayerDiv.style.height = viewport.height + 'px';
+            wrapper.appendChild(textLayerDiv);
+
+            const textContent = await page.getTextContent();
+            
+            // Render text layer items
+            // Using a simplified manual approach or PDF.js helper?
+            // Manual approach as per modern PDF.js changes can be verbose.
+            // Let's try to map items to spans manually based on transform.
+            
+            // However, PDF.js provides pdfjsLib.renderTextLayer (deprecated/moved in new versions?)
+            // In 3.x+ usually we explicitly build spans.
+            
+            for (const item of textContent.items) {
+                const tx = pdfjsLib.Util.transform(viewport.transform, item.transform);
+                const fontHeight = Math.sqrt((tx[2] * tx[2]) + (tx[3] * tx[3]));
+                const div = document.createElement('span');
+                div.textContent = item.str;
+                div.style.left = tx[4] + 'px';
+                div.style.top = (tx[5] - fontHeight) + 'px';
+                div.style.fontSize = fontHeight + 'px';
+                div.style.fontFamily = 'sans-serif'; // approximate
+                
+                // Actual definition is more complex, but this is a rough MVP placement
+                // Ideally we should use the official TextLayer implementation but it's hard to bundle in a single HTML without build tools.
+                // Sticking to simplified manual placement.
+                
+                textLayerDiv.appendChild(div);
+            }
+
+            // Highlight Logic
+            if (highlightText) {
+                doHighlight(textLayerDiv, highlightText);
+            }
+        }
+
+        function normalize(str) {
+            return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim();
+        }
+
+        function doHighlight(textLayer, text) {
+            const spans = Array.from(textLayer.getElementsByTagName('span'));
+            const fullText = spans.map(s => s.textContent).join('');
+            
+            const normFull = normalize(fullText);
+            const normTarget = normalize(text);
+
+            if (normFull.includes(normTarget)) {
+                // Determine roughly which spans contain the text.
+                // This is the hard part without precise character mapping.
+                // MVP Strategy: Find any span that contains a significant chunk of the target words.
+                
+                const words = normTarget.split(' ').filter(w => w.length > 3);
+                spans.forEach(span => {
+                    const normSpan = normalize(span.textContent);
+                    if (words.some(w => normSpan.includes(w))) {
+                        span.classList.add('highlight');
+                    }
+                });
+                
+                // Scroll to first highlighted
+                const first = textLayer.querySelector('.highlight');
+                if (first) {
+                    first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else {
+                console.log("Text not found in layer exact match");
+                // Fallback: word match
+                 const words = normTarget.split(' ').filter(w => w.length > 3);
+                spans.forEach(span => {
+                    const normSpan = normalize(span.textContent);
+                    if (words.some(w => normSpan.includes(w))) {
+                        span.classList.add('highlight');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

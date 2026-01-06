@@ -1,0 +1,121 @@
+# Documento de Evolução da Aplicação "Leitor Inteligente"
+
+Este documento detalha as estratégias técnicas para implementação das melhorias solicitadas, visando a evolução da aplicação atual (Streamlit + FastAPI) para um sistema mais robusto, interativo e completo.
+
+## Visão Geral das Mudanças
+
+A aplicação passará de um visualizador passivo para um sistema completo de gestão de processos periciais, incluindo cadastro, controle de acesso e análise detalhada de evidências com persistência em banco de dados.
+
+---
+
+## Estratégias de Implementação por Item
+
+### 1. Melhoria da Visualização em Página Inteira do PDF
+**Objetivo:** Resolver a restrição de visualização do PDF criando um modo de "Foco".
+**Estratégia Técnica:**
+- **Frontend (Streamlit):**
+    - Implementar um controle de estado (`st.session_state['modo_visualizacao']` = 'padrao' | 'foco').
+    - Adicionar um botão "Expandir PDF" na barra de ferramentas do visualizador.
+    - **Lógica de Layout Condicional:**
+        - **Modo Padrão:** Manter layout de duas colunas (`st.columns([1, 1])`).
+        - **Modo Foco:** Ocultar a coluna de evidências e filtros, renderizando o iframe do PDF ocupando toda a largura disponível.
+    - Adicionar botão "Restaurar Visão" flutuante ou no topo para voltar ao modo padrão.
+
+### 2. Etapa de Cadastro do Processo
+**Objetivo:** Permitir o upload e registro de novos processos e suas evidências diretamente pela interface.
+**Estratégia Técnica:**
+- **Frontend:**
+    - Criar uma nova página ou aba "Novo Processo".
+    - Formulário contendo:
+        - Campos textuais: `Número do Processo`, `Descrição/Nome`.
+        - Uploaders: `Arquivo PDF` (Obrigatório), `Planilha Mapeamento` (Opcional), `Planilha Catalogador` (Opcional).
+    - Botão "Cadastrar Processo".
+- **Backend (FastAPI):**
+    - Criar endpoint `POST /processos` (multipar/form-data).
+    - Receber metadados e arquivos simultaneamente.
+    - **Actions:**
+        1. Criar registro na tabela `processos`.
+        2. Salvar PDF em `/static/uploads`.
+        3. Trigger automático das funções de ETL (`import_mapeamento`, `import_catalogador`) para processar as planilhas em memória e salvar no banco.
+
+### 3. Busca de Processo Cadastrado
+**Objetivo:** Facilitar a localização de processos já inseridos.
+**Estratégia Técnica:**
+- **Frontend:**
+    - O componente `st.sidebar.selectbox` já possui busca textual nativa.
+    - **Melhoria:** Se o número de processos for muito grande, implementar "Lazy Loading" ou um campo de texto "Filtrar Processos" acima do selectbox para filtrar a lista antes de carregar no componente de seleção.
+
+### 4. Armazenamento Automático (Fluxo de Cadastro)
+**Objetivo:** Automatizar a carga de dados no momento do cadastro.
+**Estratégia Técnica:**
+- **Backend:**
+    - Como descrito no item 2, a lógica de ETL (`etl_service.py`) será invocada diretamente pelo endpoint de cadastro.
+    - Isso elimina a necessidade de scripts manuais (`seed_db.py` ou execução via terminal) para operação normal, tornando o sistema "Self-Service" para o usuário final.
+
+### 5. Cadastro de Login e Permissões (Admin)
+**Objetivo:** Controle de acesso e segurança básica.
+**Estratégia Técnica:**
+- **Banco de Dados:**
+    - Criar tabela `usuarios` com colunas: `username` (PK), `password_hash`, `is_admin`, `can_create_users`.
+- **Backend:**
+    - Endpoint `POST /token` para autenticação (retornando JWT ou validação simples).
+    - Endpoint `POST /users` para criar usuários (protegido, requer admin).
+- **Frontend:**
+    - Implementar fluxo de Login: Checar `st.session_state['token']`. Se vazio, mostrar apenas tela de Login.
+    - **Menu Admin:** Criar seção na sidebar visível apenas se `user.is_admin == True` para gestão de usuários.
+    - **Seed Inicial:** Garantir criação automática do usuário `admin` / `admin` na inicialização do banco.
+
+### 6. Filtro "Tipo de Evidência" Dinâmico
+**Objetivo:** Mostrar apenas tipos de evidência existentes no processo atual.
+**Estratégia Técnica:**
+- **Backend:**
+    - Criar endpoint `GET /processos/{id}/tipos_evidencia`.
+    - Query: `SELECT DISTINCT tipo_evidencia FROM evidencias_mapeadas WHERE processo_id = :id UNION SELECT DISTINCT origem_tipo FROM evidencias_catalogadas...`
+- **Frontend:**
+    - Ao selecionar um processo, chamar este endpoint e popular o `st.selectbox` de filtro com os valores retornados.
+
+### 7. Organização dos Filtros (Bloco Evidências)
+**Objetivo:** Melhorar a UX movendo filtros para perto da lista de resultados.
+**Estratégia Técnica:**
+- **Frontend:**
+    - Remover filtros da Sidebar.
+    - Inserir os campos de "Busca Textual" e "Tipo de Evidência" no topo da **Coluna Esquerda**, logo acima da lista de cards de evidência. Isso contextualiza a busca.
+
+### 8. Visualização do Trecho Completo
+**Objetivo:** Eliminar o corte de texto na visualização do "Trecho".
+**Estratégia Técnica:**
+- **Backend:**
+    - Garantir que o schema de resposta (`EvidenciaUnificada`) envie o campo `trecho` completo ou `conteudo` completo na propriedade `original_data`.
+- **Frontend:**
+    - No card da evidência, substituir a visualização truncada por um componente `st.expander("Ver Trecho Completo")` ou um container com scroll, garantindo que todo o texto seja acessível sem poluir o layout principal.
+
+### 9. Botão "Ver Detalhes" da Evidência
+**Objetivo:** Acesso granular a todas as informações da planilha.
+**Estratégia Técnica:**
+- **Frontend:**
+    - Adicionar botão "📋 Detalhes" em cada card de evidência.
+    - Ação: Abrir um `st.dialog` (modal) exibindo uma tabela ou lista chave-valor com **todos** os dados retornados na chave `original_data` (CNPJ, Datas, Valores, CFOP, Referências Originais, etc.).
+
+### 10. Importação Completa das Planilhas
+**Objetivo:** Garantir que nenhuma coluna seja perdida, mesmo que o layout mude.
+**Estratégia Técnica:**
+- **Banco de Dados:**
+    - Adicionar coluna do tipo `JSON` chamada `dados_extras` nas tabelas `EvidenciaMapeada` e `EvidenciaCatalogada`.
+- **Backend (ETL):**
+    - Refatorar `etl_service.py` para ler todas as colunas do Excel.
+    - Mapear colunas conhecidas para os campos fixos da tabela.
+    - Armazenar **todo o registro (row)** como um dicionário JSON na coluna `dados_extras`.
+    - Isso garante "futuro-garantido": qualquer nova coluna adicionada na planilha estará automaticamente disponível no botão "Ver Detalhes" via leitura do JSON.
+
+---
+
+## Próximos Passos
+1. Atualizar Modelos de Banco de Dados (`models.py`) para incluir tabela de usuários e campo JSON.
+2. Implementar fluxo de Auth (`backend` e `frontend`).
+3. Criar endpoint de Cadastro de Processo com Upload e ETL integrado.
+4. Refatorar Frontend para novo layout (filtros movidos, modo foco, modais de detalhe).
+
+
+## Correção de erros e melhorias
+- Botão detalhes esta mostrando as informações em estrutura json ou similar, preciso que fique visual para usuário final ou seja, em estrutura de tela
+- O bloco "Visualizador PDF"que fica do lado direito da tela ainda está cortando o pdf e deixando a pré vizualização incompleta, o ideal seria recolher o bloco "Filtros & Evidências" assim como é feito com o bloco "Navegação" para que o pdf fique visível

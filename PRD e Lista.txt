@@ -1,0 +1,689 @@
+1. Visão Geral do Produto
+1.1. Problema
+
+Em um escritório de assistência pericial, advogados e analistas precisam lidar com processos em PDF:
+
+3.000+ páginas
+
+Arquivos até 300 MB
+
+Dificuldade para localizar evidências e trechos relevantes
+
+Operação manual, lenta, com muito “Ctrl+F” e leitura exaustiva
+
+Apesar de já existirem planilhas de evidências geradas por IA, o uso delas ainda não está integrado a um fluxo fluido de trabalho.
+
+1.2. Solução Proposta
+
+Desenvolver uma aplicação web com backend Python que:
+
+Use as planilhas como índice inteligente
+
+evidencias_extraidas_mapeamento
+
+evidencias_extraidas_catalogador
+
+Permita:
+
+Filtros avançados (tipo de evidência, CNPJ, NFe, datas, etc.)
+
+Visualização de índices e evidências em tabela (lista)
+
+Ao clicar em um item, abrir o PDF já na página correta
+
+Em uma segunda fase, integrar um assistente pericial via API Gemini, capaz de:
+
+Responder perguntas sobre o processo;
+
+Trazer trechos e páginas de suporte;
+
+Usar as evidências mapeadas como contexto privilegiado.
+
+1.3. Objetivos de Negócio
+
+Reduzir o tempo para localizar evidências em um processo extenso.
+
+Aumentar a produtividade dos analistas/advogados periciais.
+
+Criar base para soluções mais avançadas de IA jurídica (assistente pericial via LLM).
+
+Manter o controle sobre o contexto usado (auditoria e rastreabilidade).
+
+1.4. Escopo (MVP Fase 1 – UI + Filtros)
+
+INCLUÍDO (MVP):
+
+Upload ou cadastro de processos com link para PDF já existente.
+
+Importação e indexação das planilhas:
+
+evidencias_extraidas_mapeamento
+
+evidencias_extraidas_catalogador
+
+Conversão de Referência → número(s) de página.
+
+Interface web com:
+
+Filtros (tipo de evidência, CNPJ, NFe, datas, valor, etc.).
+
+Lista paginada de evidências.
+
+Ao clicar: abrir visualizador de PDF na página correta.
+
+Perfis básicos de usuário: advogado/analista (sem gestão avançada de permissões neste MVP; pode ser por login simples/SSO interno).
+
+EXCLUÍDO (MVP, fica para Fase LLM):
+
+Chat com LLM.
+
+Geração automática de laudos.
+
+Análises comparativas entre processos.
+
+Workflows de aprovação/assinatura.
+
+1.5. Sucesso (Métricas)
+
+Tempo médio para encontrar uma evidência específica (antes x depois).
+
+Número de acessos/consultas por processo.
+
+Feedback qualitativo dos usuários (clareza da interface, facilidade de uso).
+
+Na fase LLM: % de respostas úteis/aceitas pelo perito em amostras controladas.
+
+2. Personas e Usuários
+2.1. Persona Principal – Analista/Advogado Pericial
+
+Profissional jurídico com foco em perícia e provas.
+
+Nível técnico mediano (usa sistemas, mas não é desenvolvedor).
+
+Dor principal: localizar rapidamente trechos que sustentem teses jurídicas.
+
+2.2. Persona Secundária – Coordenador/Perito Sênior
+
+Usa o sistema para validar análises, consolidar evidências e instruir equipes.
+
+Precisa de visão mais macro, mas também consulta evidências detalhadas.
+
+3. Fluxos de Uso (UI + Filtros)
+3.1. Fluxo 1 – Selecionar Processo e Visualizar Evidências
+
+Usuário acessa a aplicação e vê uma lista de processos ou campo de busca por número.
+
+Seleciona um processo.
+
+Sistema carrega:
+
+Metadados do processo (número, partes, etc.).
+
+Tabelas de evidências associadas (mapeamento + catalogador).
+
+Usuário vê:
+
+Painel de filtros (lado esquerdo ou topo).
+
+Tabela de evidências com colunas principais:
+
+Página(s)
+
+Tipo de evidência
+
+Resumo/Conteúdo
+
+Trecho
+
+Metadados (CNPJ, NF, valor, data, etc. – quando aplicáveis).
+
+Ao clicar em uma linha da tabela:
+
+Visualizador de PDF abre NA página da evidência.
+
+Aba lateral mostra detalhes da evidência.
+
+3.2. Fluxo 2 – Filtrar por Critérios Jurídico-Fiscais
+
+Usuário seleciona filtros como:
+
+Tipo de evidência = “Notas Fiscais”
+
+CNPJ = “XX.XXX.XXX/0001-YY”
+
+Intervalo de datas de emissão
+
+Faixa de valor total
+
+Sistema aplica filtros nas evidências:
+
+evidencias_extraidas_catalogador (principal para dados fiscais).
+
+Exibe somente evidências compatíveis.
+
+Usuário clica na evidência → abre página específica no PDF.
+
+3.3. Fluxo 3 – Pré-seleção para LLM (fase futura)
+
+Importante para desenhar UI desde já, mesmo que a função LLM só venha depois.
+
+Usuário seleciona uma ou mais evidências na tabela (checkbox).
+
+Clica em “Enviar para Assistente Pericial” (botão que, na Fase 1, pode ficar desabilitado ou apenas simular).
+
+Esses IDs de evidência serão a base de contexto a ser enviada ao LLM na Fase 2.
+
+4. Requisitos Funcionais – Fase 1 (UI + Filtros)
+RF-01 – Cadastro de Processo
+
+Descrição:
+Permitir cadastrar um processo na aplicação, com os seguintes campos:
+
+Número do processo
+
+Nome/descrição
+
+Caminho/URL do PDF original
+
+Arquivos de evidências (upload das planilhas OU vínculo a arquivos em repositório interno)
+
+Critérios de Aceite:
+
+Após cadastro, o processo aparece na lista inicial.
+
+O sistema importa as planilhas associadas e cria registros de evidência.
+
+RF-02 – Importação das Planilhas de Evidência
+
+Descrição:
+Ler os arquivos:
+
+evidencias_extraidas_mapeamento
+
+evidencias_extraidas_catalogador
+
+e convertê-los em registros de banco de dados.
+
+Regras de Negócio:
+
+Campo Referência deve ser interpretado para extrair número(s) de página.
+
+Quando a referência indicar intervalo (ex.: “fls. 10/12”), armazenar pagina_inicial = 10, pagina_final = 12.
+
+O sistema deve validar o formato mínimo das planilhas (colunas obrigatórias).
+
+Critérios de Aceite:
+
+Dados importados aparecem na tabela de evidências.
+
+Em caso de erro, sistema registra log e exibe mensagem amigável (sem stack trace).
+
+RF-03 – Tabela de Evidências (UI Principal)
+
+Descrição:
+Exibir lista paginada e ordenável de evidências.
+
+Campos mínimos (mapeamento):
+
+Página(s)
+
+Tipo de evidência
+
+Resumo / Conteúdo
+
+Trecho
+
+Campos adicionais (catalogador):
+
+CNPJ emitente/destinatário
+
+Chave NFe
+
+Número da NF
+
+Data de emissão
+
+Valor total
+
+CFOP
+
+Funcionalidades:
+
+Paginação (ex.: 50 registros por página).
+
+Ordenação por página, data, valor.
+
+Colunas configuráveis (mostrar/ocultar).
+
+Critérios de Aceite:
+
+Carregamento em até X segundos para N registros (definir N, ex.: 10k evidências).
+
+A paginação deve funcionar sem recarregar página inteira (UX fluida).
+
+RF-04 – Filtros de Evidência
+
+Descrição:
+Permitir filtrar a tabela de evidências com base em:
+
+Tipo de evidência
+
+Página (ou intervalo de páginas)
+
+CNPJ (emitente/destinatário)
+
+Número de NF
+
+Data de emissão (intervalo)
+
+Faixa de valor total
+
+Texto livre no resumo/trecho (full-text search simplificado)
+
+Comportamento:
+
+Filtros podem ser combinados (AND).
+
+Deve haver botão “Limpar filtros”.
+
+O filtro de texto livre deve pesquisar em campos:
+
+resumo, conteudo, trecho, tipo_evidencia.
+
+Critérios de Aceite:
+
+Aplicar filtros sem recarregar a página inteira.
+
+Retornar resultados corretos com base em cenários de teste (ex.: CNPJ + faixa de datas).
+
+RF-05 – Visualização do PDF na Página Corret a
+
+Descrição:
+Ao clicar numa evidência, abrir o PDF original posicionado na página correspondente.
+
+Comportamento:
+
+Usar componente de visualização (ex.: PDF.js) embutido na página.
+
+Se evidência tiver intervalo de páginas, posicionar na página inicial.
+
+Deve ser possível navegar livremente no PDF após abrir.
+
+Critérios de Aceite:
+
+Clique em evidência → PDF abre corretamente em no máximo X segundos.
+
+Ao selecionar outra evidência, o visualizador reposiciona na nova página sem recarregar o arquivo do zero, se possível (otimização opcional).
+
+RF-06 – Detalhes da Evidência
+
+Descrição:
+Exibir, ao lado ou abaixo da tabela/PDF, os detalhes da evidência selecionada.
+
+Campos:
+
+Todos os campos relevantes da evidência (mapeamento + catalogador).
+
+Link/ícone para “copiar trecho” (clipboard).
+
+Campo indicando “Fonte de extração” (mapeamento/catalogador, versão do modelo etc., se disponível).
+
+Critérios de Aceite:
+
+Ao trocar de linha selecionada na tabela, a área de detalhes é atualizada imediatamente.
+
+Layout responsivo (em telas menores, detalhes podem virar um modal).
+
+RF-07 – Pré-seleção para Assistente Pericial (UI)
+
+Descrição:
+Permitir ao usuário marcar evidências com o intuito de usá-las futuramente em uma consulta LLM.
+
+Comportamento:
+
+Cada linha da tabela possui checkbox de seleção.
+
+Botão “Enviar para Assistente” (Fase 1 pode apenas guardar a seleção ou ficar desativado).
+
+Na Fase 2, essas seleções serão usadas como contexto ao chamar o LLM.
+
+Critérios de Aceite:
+
+Seleções persistem durante a sessão do usuário (pelo menos enquanto ele estiver no mesmo processo).
+
+Número de evidências selecionadas é exibido (ex.: “3 evidências selecionadas”).
+
+5. Requisitos Funcionais – Fase 2 (LLM / Gemini)
+
+Obs.: Prioridade secundária, mas já documentado para orientar decisões de hoje.
+
+RF-LLM-01 – Chat com Assistente Pericial
+
+Descrição:
+Permit ir que o usuário faça perguntas em linguagem natural sobre o processo selecionado.
+
+Comportamento:
+
+Caixa de texto de chat na interface (lado da direita, abaixo do PDF ou em aba separada).
+
+Cada pergunta:
+
+Envia processo_id
+
+Contexto opcional: lista de id_evidencia selecionados
+
+Backend monta requisição para Gemini (2.5 Pro / Flash) com:
+
+Instruções de sistema (rottler, papel do assistente).
+
+Contexto (evidências + trechos recuperados via RAG/File Search).
+
+Pergunta do usuário.
+
+Critérios de Aceite:
+
+Resposta deve conter texto explicativo.
+
+Sempre que possível, resposta inclui referência a páginas/trechos usados.
+
+Tempo de resposta dentro de limite aceitável (ex.: ≤ 10–15s).
+
+RF-LLM-02 – Citações e Páginas de Suporte
+
+Descrição:
+A resposta do LLM deve conter, além do texto, uma lista estruturada de citações (páginas/fls).
+
+Saída esperada (exemplo de JSON interno):
+
+{
+  "resposta_textual": "…",
+  "citacoes": [
+    {
+      "tipo": "nota_fiscal",
+      "pagina_inicial": 432,
+      "pagina_final": 432,
+      "id_evidencia": 1234
+    }
+  ]
+}
+
+
+Critérios de Aceite:
+
+Ao clicar numa citação na UI, o PDF posiciona na página correspondente.
+
+Quando a citação estiver associada a evidência, deve ser possível destacar essa linha na tabela.
+
+RF-LLM-03 – Modo “Perguntar sobre evidências selecionadas”
+
+Descrição:
+Se o usuário tiver evidências selecionadas e usar um botão específico (ex.: “Analisar estas evidências”), o LLM recebe apenas o contexto dessas evidências, além dos trechos recuperados via RAG.
+
+Critérios de Aceite:
+
+Resposta do LLM faz referência às evidências específicas.
+
+É possível ver claramente quais evidências foram usadas (exibir lista na interface).
+
+6. Requisitos Não Funcionais
+RNF-01 – Performance
+
+Interface deve responder rapidamente:
+
+Carregar tabela inicial de evidências em até ~3s para até 10.000 registros.
+
+Tempo médio para abrir PDF na página desejada ≤ 3–5s (dependendo da infra).
+
+Fase LLM:
+
+Tempo médio por resposta ≤ 15s (para perguntas complexas).
+
+RNF-02 – Segurança
+
+Acesso restrito a usuários autenticados.
+
+Dados dos processos não podem sair de ambientes autorizados (considerar:
+
+VPN / rede interna
+
+Configuração de privacidade na chamada à API Gemini).
+
+Log de auditoria para:
+
+Quem consultou qual processo.
+
+Quando foram feitas perguntas ao LLM.
+
+RNF-03 – UX / Usabilidade
+
+Interface em português, termos jurídicos claros.
+
+Navegação consistente:
+
+Filtros sempre visíveis ou de fácil acesso.
+
+Tabela e PDF sempre sincronizados.
+
+Layout responsivo básico (desktop prioritário).
+
+7. Arquitetura (alto nível – para orientar tarefas)
+Backend
+
+Linguagem: Python
+
+Framework sugerido: FastAPI
+
+Responsabilidades:
+
+Endpoints para:
+
+/processos
+
+/evidencias
+
+/filtros
+
+/pdf/{processo_id}
+
+/chat/consulta-pericial (Fase 2)
+
+Importação de planilhas (ETL).
+
+Mapeamento referencia -> pagina.
+
+Integração com repositório de PDFs.
+
+Integração com Gemini API (Fase 2).
+
+Frontend
+
+Aplicação web (Single Page Application).
+
+Framework sugerido: React (mas pode ser Vue/Angular conforme padrão da org).
+
+Integração com backend via REST/JSON.
+
+Uso de componente de visualização de PDF (ex.: PDF.js embutido).
+
+Banco de Dados
+
+Relacional (ex.: PostgreSQL).
+
+Tabelas principais:
+
+processo
+
+evidencia_mapeada
+
+evidencia_catalogada
+
+(Fase 2) chunk_texto, consulta_llm, etc.
+
+8. Lista de Tarefas (Backlog Inicial)
+
+Vou dividir em Fase 1 – UI + Filtros (prioridade alta) e Fase 2 – LLM.
+
+8.1. Fase 1 – UI + Filtros (Prioridade Máxima)
+EP01 – Setup do Projeto e Infra
+
+[T1] Criar repositório do backend (Python/FastAPI)
+
+[T2] Criar repositório do frontend (React ou outro)
+
+[T3] Definir ambiente de desenvolvimento (Docker opcional)
+
+[T4] Configurar banco de dados (PostgreSQL) e criar script de migração inicial
+
+EP02 – Modelo de Dados e ETL das Planilhas
+
+[T5] Modelar tabelas: processo, evidencia_mapeada, evidencia_catalogada
+
+[T6] Implementar serviço de importação para evidencias_extraidas_mapeamento
+
+[T7] Implementar serviço de importação para evidencias_extraidas_catalogador
+
+[T8] Implementar função de parsing de Referência → pagina_inicial, pagina_final
+
+[T9] Criar comandos de linha (ou endpoints internos) para reprocessar planilhas
+
+EP03 – API de Consulta de Evidências
+
+[T10] Endpoint GET /processos – listar processos
+
+[T11] Endpoint GET /processos/{id} – detalhes básicos
+
+[T12] Endpoint GET /processos/{id}/evidencias com:
+
+Paginação
+
+Filtros por:
+
+tipo de evidência
+
+página
+
+CNPJ
+
+NF
+
+datas
+
+valor
+
+texto livre (query param q)
+
+[T13] Implementar lógica de filtro combinando tabelas de mapeamento e catalogador
+
+[T14] Endpoint GET /evidencias/{id} – detalhes da evidência
+
+EP04 – Integração com PDF
+
+[T15] Definir formato de armazenamento/URL do PDF (filesystem, S3, etc.)
+
+[T16] Endpoint GET /processos/{id}/pdf – retorna URL ou stream para o PDF
+
+[T17] Endpoint opcional GET /processos/{id}/pdf/pagina/{n} (se for necessário algum cálculo extra)
+
+[T18] Implementar mapeamento front → PDF.js (ou similar) para abrir página específica
+
+EP05 – UI – Base Layout e Navegação
+
+[T19] Tela de login simples (se necessária no MVP)
+
+[T20] Tela de lista de processos (busca por número/nome)
+
+[T21] Tela principal do processo: layout com 3 áreas:
+
+Filtros
+
+Tabela de evidências
+
+Visualizador de PDF + detalhes da evidência
+
+EP06 – UI – Tabela de Evidências e Filtros
+
+[T22] Componente de tabela de evidências (com paginação)
+
+[T23] Implementar filtros na UI:
+
+tipo de evidência
+
+CNPJ
+
+NF
+
+datas
+
+valor
+
+texto livre
+
+[T24] Conectar tabela aos endpoints de backend (/evidencias)
+
+[T25] Implementar seleção de evidências (linha com checkbox)
+
+[T26] Componente de detalhes da evidência (painel lateral ou modal)
+
+EP07 – UI – PDF Viewer Integrado
+
+[T27] Integrar componente PDF.js (ou equivalente) à tela principal
+
+[T28] Implementar função abrirPagina(pagina) no front
+
+[T29] Ao clicar numa evidência, chamar abrirPagina com valor da evidência
+
+[T30] Testes manuais: sincronização tabela ↔ PDF
+
+EP08 – Observabilidade e Qualidade
+
+[T31] Configurar logs básicos no backend (acessos, erros, importações)
+
+[T32] Configurar logs de frontend (erros relevantes)
+
+[T33] Escrever testes unitários mínimos para parsing de Referência
+
+[T34] Escrever testes de integração simples para GET /evidencias com filtros
+
+8.2. Fase 2 – LLM / Gemini (Planejamento Inicial)
+
+Pode ser atacada depois que Fase 1 estiver estável.
+
+EP09 – Integração Básica com Gemini
+
+[T35] Criar módulo de configuração da API Gemini (chaves, endpoint etc.)
+
+[T36] Criar client Python para chamadas de chat (modelo 2.5 Pro/Flash)
+
+[T37] Implementar função de teste: pergunta simples e resposta stub
+
+EP10 – Estratégia de Contexto (RAG / File Search)
+
+[T38] Definir estratégia final (File Search, RAG próprio, híbrido) para POC
+
+[T39] Implementar pipeline para subir partes do processo para File Search (se adotado)
+
+[T40] Implementar indexação de chunks de texto (caso RAG próprio)
+
+[T41] Implementar função buscar_contexto(pergunta, processo_id, evidencias_selecionadas)
+
+EP11 – Endpoint de Chat Pericial
+
+[T42] Endpoint POST /chat/consulta-pericial
+
+Entrada: processo_id, pergunta, ids de evidência (opcional).
+
+Saída: resposta textual + citações.
+
+[T43] Implementar prompt engineering básico (instruções do assistente pericial).
+
+[T44] Implementar parsing da resposta do LLM para formato interno (JSON com citações).
+
+EP12 – UI do Assistente Pericial
+
+[T45] Criar componente de chat na tela do processo.
+
+[T46] Conectar chat ao endpoint /chat/consulta-pericial.
+
+[T47] Exibir citações como lista clicável, integrando com PDF viewer.
+
+[T48] Permitir modo “Perguntar sobre evidências selecionadas”.

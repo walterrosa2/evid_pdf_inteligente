@@ -1,0 +1,12 @@
+
+fastapi
+uvicorn
+sqlalchemy
+pandas
+openpyxl
+python-multipart
+loguru
+python-dotenv
+openai
+passlib[bcrypt]
+python-jose[cryptography]
