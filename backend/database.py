@@ -1,4 +1,6 @@
 import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 # No Railway, usaremos volumes para persistência. 
 # DATA_PATH pode apontar para o diretório montado.
