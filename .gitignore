@@ -38,6 +38,7 @@ env/
 
 # Logs
 *.log
+backend/logs/
 
 # Project specific data (Excel, PDFs)
 # Ignoring specific large data files in root unrelated to code logic
