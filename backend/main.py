@@ -10,9 +10,9 @@ from datetime import timedelta
 import shutil
 import os
 from .database import get_db, engine, Base
-from .models import Processo, EvidenciaMapeada, EvidenciaCatalogada, Usuario
-from .schemas import ProcessoSchema, EvidenciaUnificada, Token, UsuarioCreate, UsuarioDisplay
-from . import auth, etl_service
+from .models import Processo, EvidenciaMapeada, EvidenciaCatalogada, Usuario, ChatSession, ChatMessage
+from .schemas import ProcessoSchema, EvidenciaUnificada, Token, UsuarioCreate, UsuarioDisplay, ChatSessionSchema, ChatSessionCreate, ChatMessageSchema, ChatMessageCreate, ChatSessionInit
+from . import auth, etl_service, text_service, chat_service
 import uvicorn
 
 # Create tables if they don't exist (helpful for auto-init)
@@ -76,14 +76,21 @@ def create_user(user: UsuarioCreate, db: Session = Depends(get_db), current_user
 def create_processo_completo(
     numero: str = Form(...),
     nome: str = Form(...),
+    marcador_pagina: Optional[str] = Form(None),
     file_pdf: UploadFile = File(...),
     file_mapeamento: Optional[UploadFile] = File(None),
     file_catalogador: Optional[UploadFile] = File(None),
+    file_texto: Optional[UploadFile] = File(None),
     db: Session = Depends(get_db),
     # current_user: Usuario = Depends(auth.get_current_active_user)
 ):
     # Create Process
-    processo = Processo(numero_processo=numero, nome_descricao=nome, caminho_pdf="")
+    processo = Processo(
+        numero_processo=numero, 
+        nome_descricao=nome, 
+        caminho_pdf="",
+        marcador_pagina=marcador_pagina
+    )
     db.add(processo)
     db.commit()
     db.refresh(processo)
@@ -99,6 +106,14 @@ def create_processo_completo(
         shutil.copyfileobj(file_pdf.file, buffer)
     
     processo.caminho_pdf = f"uploads/{processo.id}.pdf"
+    
+    # Save Text File if provided
+    if file_texto:
+        txt_path = os.path.join(uploads_dir, f"{processo.id}_full.txt")
+        with open(txt_path, "wb") as buffer:
+            shutil.copyfileobj(file_texto.file, buffer)
+        processo.caminho_texto = f"uploads/{processo.id}_full.txt"
+
     db.commit()
 
     # Process Excels
@@ -271,5 +286,75 @@ def get_tipos_evidencia(processo_id: int, db: Session = Depends(get_db)):
         
     return list(sorted(tipos))
 
+# -- Text & Chat Endpoints --
+
+@app.get("/processos/{processo_id}/pagina_texto")
+def get_pagina_texto(processo_id: int, pagina: int, db: Session = Depends(get_db)):
+    processo = db.query(Processo).filter(Processo.id == processo_id).first()
+    if not processo or not processo.caminho_texto:
+        raise HTTPException(status_code=404, detail="Arquivo de texto não encontrado para este processo.")
+    
+    # Resolve path
+    # stored as uploads/X.txt, relative to backend/static
+    real_path = os.path.join(static_dir, processo.caminho_texto.replace("/", os.sep))
+    
+    content = text_service.get_page_content(real_path, processo.marcador_pagina, pagina)
+    return {"conteudo": content}
+
+@app.post("/processos/{processo_id}/chat_sessions", response_model=ChatSessionSchema)
+def create_chat_session(
+    processo_id: int, 
+    payload: ChatSessionInit, 
+    db: Session = Depends(get_db)
+):
+    # Fetch process to get text path
+    processo = db.query(Processo).filter(Processo.id == processo_id).first()
+    if not processo:
+        raise HTTPException(status_code=404, detail="Process not found")
+
+    evidencias = payload.evidencias
+
+    # Helper to fetch text pages
+    # We need to know which pages to fetch.
+    pages_to_fetch = set()
+    for ev in evidencias:
+        if ev.get('pagina_inicial'):
+            pages_to_fetch.add(ev['pagina_inicial'])
+    
+    # Fetch texts
+    paginas_texto = {}
+    if processo.caminho_texto:
+        real_path = os.path.join(static_dir, processo.caminho_texto.replace("/", os.sep))
+        for pg in pages_to_fetch:
+            if pg:
+                paginas_texto[pg] = text_service.get_page_content(real_path, processo.marcador_pagina, pg)
+    
+    context_data = {
+        "evidencias": evidencias,
+        "paginas_texto": paginas_texto
+    }
+    
+    session = chat_service.create_session(db, processo_id, context_data)
+    return session
+
+@app.get("/processos/{processo_id}/chat_sessions", response_model=List[ChatSessionSchema])
+def list_chat_sessions(processo_id: int, db: Session = Depends(get_db)):
+    sessions = db.query(ChatSession).filter(ChatSession.processo_id == processo_id).order_by(ChatSession.created_at.desc()).all()
+    return sessions
+
+@app.get("/chat_sessions/{session_id}/messages", response_model=List[ChatMessageSchema])
+def get_chat_messages(session_id: int, db: Session = Depends(get_db)):
+    msgs = db.query(ChatMessage).filter(ChatMessage.session_id == session_id).order_by(ChatMessage.created_at).all()
+    return msgs
+
+@app.post("/chat_sessions/{session_id}/messages")
+def send_chat_message(session_id: int, payload: ChatMessageCreate, db: Session = Depends(get_db)):
+    if payload.role != "user":
+        raise HTTPException(status_code=400, detail="Only can send user messages")
+    
+    response_text = chat_service.process_user_message(db, session_id, payload.content)
+    return {"role": "assistant", "content": response_text}
+
 if __name__ == "__main__":
-    uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("backend.main:app", host="0.0.0.0", port=port, reload=True)

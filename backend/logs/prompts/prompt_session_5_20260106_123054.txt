@@ -1,0 +1,219 @@
+=== SYSTEM PROMPT + CONTEXT ===
+SYSTEM INSTRUCTION:
+Você é um assistente jurídico/contábil especializado em análise de processos.
+Sua função é auxiliar o usuário respondendo perguntas sobre as evidências encontradas no processo e o conteúdo textual das páginas fornecidas.
+
+CONTEXTO FORNECIDO:
+1. Lista de Evidências: Resumo das evidências filtradas pelo usuário (Notas Fiscais, Trechos mapeados, etc).
+2. Conteúdo das Páginas: O texto completo das páginas onde essas evidências se encontram.
+
+DIRETRIZES:
+- Responda APENAS com base nas informações fornecidas no contexto. Se a informação não estiver lá, diga que não encontrou.
+- Seja conciso e direto, formato profissional.
+- Ao citar valores ou dados, tente referenciar a página ou a evidência de onde tirou a informação.
+- Se houver divergência entre o resumo da evidência e o texto da página, aponte a divergência.
+
+O usuário fará perguntas sobre esse conjunto de dados.
+
+
+CONTEXTO DO PROCESSO:
+RESUMO DAS EVIDÊNCIAS SELECIONADAS NO FILTRO:
+- Tipo: Notas Fiscais
+  Resumo: Identificação do número da nota fiscal.
+  Página Original no PDF: 49
+---
+- Tipo: Notas Fiscais
+  Resumo: Identificação do tipo de nota fiscal como eletrônica de serviço.
+  Página Original no PDF: 49
+---
+- Tipo: Notas Fiscais
+  Resumo: NF: 000.000.053 - Valor: None
+  Página Original no PDF: 49
+---
+- Tipo: Notas Fiscais
+  Resumo: NF: None - Valor: None
+  Página Original no PDF: 49
+---
+
+CONTEÚDO TEXTUAL DAS PÁGINAS MENCIONADAS (PARA CONSULTA):
+
+[TEXTO INTEGRAL DA PÁGINA 49]:
+49
+
+
+
+
+
+
+
+
+i ÜHIWC0R
+
+ATUAulAMOtS <nr'W< wmoii-. "itocarrla. mi
+Mt<w - «> 4*- riilrensem 4 uriaruutc 4» um* »•»•
+4m»A«
+
+COU tomomu »ma monta uwiitan-a uo
+ttí^ertw¹ urumaa oa »«naa#* contou aj-h-co >u
+VlOwUa B N 10-01 VUUlÇO» *»r e»á. i Sr 1HWM4 ‘Mi I
+«onltrmr srw-o no CMowi* $ <!«*■.' liir Ou
+corácooaH ít icmoa d< u» contraio par. atl.iitao do
+5ote»a r Apiqat »a Sr nu-in-made S« ’01Vi taftwom
+f tiím-i-ou. r/Ou SMtMuvt S* tortooci conashdi 4
+iontiofantr
+
+(4)0100 CDMMIAOO "Mt>uíOo. S« xcwx-uia.- , ,
+linSuacrm S» <nMH« tmXIWià«> mr’ r Co enfim 'OKI»
+CO Wtlworv Apullia
+
+C 04414*1 AS l| G-ir-.- .  :-.dn .1.    . ,J|«. J.! II*
+
+Oiupova
+
+(OamutO ••U» ».t'wtnaMc cc íp-' I . j.. n p . >
+O-cpona. >
+
+OtXUMiMACÀO lon.wlo Io-tvi । ' Mar .* Ou
+^O*!aur« Monuo Sr NiilaUçM « Miro» WX arrorlOk r
+nlocrnaçOot «lal-va - ac Softra* • tua IrnplaMUfAo
+<t« i«.. ca ftupokU * oouiRMiniocAc 0000*4 m>
+S>»pu»ib uocteom mrc Hrtromc?
+
+liOiri.CAÇOES ^>«t»< »l<4 tocata. r <umHX«> Ou
+Mtt«MHt aimotrioa uj !XKa#ur<M«Ac
+
+lEGiSlAÇÀO r i r<iBjun*»e» or> r Iwooiji (suduai r
+Mvniup* «m«i udima apriw» o» que m »»»«,* •
+MumiSM» com ouriiioudr ira o oe que SOOOOC
+q«»«n» tn. *i. •kaO.lanre. COR *;r.J<. «o 1034 at
+capital otoutmiai r DiUruo <«Ctrl ri que trtribram M
+OMtru ,>ti -iacao sotu sotiwarril A«iac»iM>.i:
+UMieutacMktJ HO. UM «etlle OaMAs' dnM OU* *
+«MoipteiacOu rg*l Ca» nornw» ronocai >ra r’rtu*oa com
+t.r« no 'iiwoarnifi iiiikpnoeitai dO»AlMAr«3 ou
+ivrfoirWHi. woroo <« ai aureaço». or c-ra o* do
+«UlStl VtVtUACPi tom <iMMM(0tn vntlK -lu. r .Jornal
+iliSnCiK-Mi, । jkair. «■ e>pri *i a. da CO*íTMTAAtt
+
+EULA tid tw l«cnu *41 remar n CKiamtrM qu.
+vii p*ia *» tuidinM» 9r triciniame to fl<i ichwmt
+i -nOarmoc pcia v:«trat»' tl
+
+IMBlAMAÇAO par-w ir nit-ucao 30 Sohwxt
+ap-ai-m -vurt™» ^» >■ « .rwt< >ac*n
+
+INSTANCIA 41,14 ■■ .1 40- M <10 •“ riuci 3- i;n ua :r
+uni J*T>.,.-»i. 'jtk.- pvM S* leWwx» Xa' o ᵣ veumi-nlk
+0» um oragurmao» -orna Parti-viiir oi »n uiuaonorirn
+ar» terminal ou cot s<aiei<ei sttedaàea qw u««r >
+■wui iar ,ur > «preAidB a « # aumiawic a cr «m uwsno
+IKO»O OI MOJtTO rxujiu 04.           -<•.£■ » ine*
+
+lOelUladd.COntOtrU- plmítea» SiPOCUa
+
+SM(O a-lo . alUp. 10o 1, rv iOOCUa . -J4- l .
+
+0 F*< 01 Jmwto» #r»'«11o» a Corsweiow
+
+»RO»O5Ta prnpuuat» ap'roTirar.i n pau TOTv •
+are ta*U (tela Lorilatanir
+
+UDl Oi DtSIMtUlCAC TOTW . . rH>. I- m .,
+• ranu»a* Rap a-aTiH-tr, <> impiMM i»TO”aa»' pa<» a
+«•tutAeS» mt.-co' ti rorV'
+
+41RV1Ç0» <;. CO» 40 0 SLA r 0» SÉS J urr J»> aí-'*
+Cvnvatante ícoImi iw vtprWaoc naiv 'rn.xnla, -
+
+4CJ aax.Ok i<M<i4lrn>n>t4-*' «I» WjTwUr •> tpU»
+«Hirawdtrti. Sae.ir• MtrC» Ck SortiCO. > Imp-MUCde
+M-kirji-.' .  «>' ia <U Salina.* -'..• •■• . ,'v
+
+iLA a-.KU Ja -Ir aJIITr lUUde < -u 4UU .. .     (J, .
+
+ÍOMiãUhlr u DMl podria w» ceM’4U<IO m CMxlx
+tuir Olorrienla- ao. MAI
+
+
+WHWIkM 41»... - *, . i ■ da .iTr-Ja'.' 1*
+*ÚTW lUM COM 4». IO<K<-JÜ> > áorlljtante COItHwr»
+Oel »«SV'a *W«M»
+
+sorrwaiH iMaA»r*Mx> •■..>«           -r- u a-d- w
+
+tl - r«m OC 3441 4 iffn^ ' 3 VI IH0CI.3 4«’C >404 <pa
+jodmie a- ui*ia.»;-..»<iuk ..wn* .r r n ;c.-.UrtL <or
+. $ri»! ma<r tia rOTVS
+
+kmtwaaí ar Tfcatcas ..'a-v . -. , r <Hiia> n
+UTKMO* 1C» quJ 4          1.T d-■>IbJ41UI• aolLXada
+
+Cu>4 3.1 MM cciriMXM a Çsmuwntr peu Wlrt 1111 de
+qual • ’0r.s t u- unjutiuieui. •i.üui.aa» -uu mt. <r a
+UMikPSaia -   jrtr.i'.»l>!- tmru iwtarr' n. awn» H'
+
+aqueU-. ru« a Cort» ilunir irmv ASoairM» a.r^amrnt*
+kOalâitn» 4M inti r» Hoaena l ao «MMr r; o^ipu
+
+SU*O«Tf OCii I. T -ícaarir Ha ₁:>n> riu.
+ijM । » -i ■- i .t I U '. -H1 Iji í. Mtul^rttt^ 1’K’Í .»Al»
+
+wiriMçJc <M • n^h 41 J ’1»
+
+•OT»1      . > LA. mK«M*» MtMUM * 3/p । «C«*tc
+
+com «S» «v r«ai. d» toú Paula ? VaSr ár fto Caun. 'O
+AaooMa Ow lomr 1*11 /* mea* MrSnn Mo Maio a»
+MS lí c& «terna «o rw/Mí «m m * M.m W?M»i
+*2»com tmtrOe tt:«l-a r « 111OULIHS UI »
+
+vtesAo «nr - > a ■•."■ • a*' *:i .<»» :-•
+44rr404,. a ’UtriVQₜ<:w ri'U4jaa .u» muca- t. ia.
+
+1 OK£fl
+
+1 . Iva kOotiaic Wi oo obimc 4 CDV • a p<rvx.au #»
+Mr»CM ar“» 101 rt a Cariariam» 'Unloon piokitui M
+lil Broeok(a<*i ACcnvatauirpoacn ooraraW no»a .ó .
+
+i - praCKAi * wzr . SeraçCi por '"w ir uiCXKila
+acla urw» Cl W>cc* >r .I.MlJ. pna SrSa
+IMMriMUc 'O^Vi .MaM uU|»v r * ninniu a pa b
+
+JJ a.. 4>,iK?.(0. «'.v*   '*. . ' a<a» apULa.a .•.«!,
+
+tt rr><vtai4<i0r-. anil» 3 urvi r a Coriuumr »
+:3-nph<'>M'rₜp'a.. e. i» H_, , < ■ O.ᵥc «kt.uujj mi,
+P'opc«all
+
+} i 0 • ■—■ Gwr «Ua a a,kl B-trpoatMM pu-.a- ■ 1.
+
+•  uti . ms# ouuluu*' mimaiuiío »r-3«' .m cwum ai i
+a«»l1uaúr>ric :io<4OC»Trr at (ai'e> W.W, na, ia
+ir H urMa lOCae qui^cuc jr« Sü má»-, da eompra
+na tpiuiqur epooi >í0t«r«M''.:r>’.   » »a > .ac S«
+
+CsntiouMe
+
+.0 tm tate d* cãrilhtj tmv* r.lr vllrlldn e >
+a rMuniar. p- r«»i pu»Mi'<> a
+
+  Ç mlet a ».rri. 1pi<>ta 00 ffrrw W-CO'<T’»Ttl 4U.TÚX
+aMiam. u ^/l«ai.> íaii-. iado- lur l<-«rr a mi
+atmaln. ana* r ,mi|.«>>nw«a an cor|»m rpm c
+SOtlMrp a li ndade- ao « urrao Sr j-La-nn d»b* e. *r<
+atwaMo» auaai» a .«ancaa ar r>-acima oRpato »
+irMWdlKM . 4H r#'4i aqw Aqpouiai í> «a» rSadeiUCet S i
+treme»
+------------------------------
+
+
+
+HISTORY:
+[]
+
+USER MESSAGE:
+Faça um resumo das evidencias listadas
+
+=== RESPONSE ===
+As evidências encontradas são notas fiscais, incluindo notas fiscais eletrônicas de serviço. Uma das notas fiscais identificadas é a de número 000.000.053, porém o valor associado a ela não foi especificado no contexto fornecido. Há também menção a outras notas fiscais sem número ou valor identificados.

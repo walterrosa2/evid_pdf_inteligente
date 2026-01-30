@@ -53,10 +53,50 @@ class EvidenciaUnificada(BaseModel):
 
     original_data: dict # Full payload
 
+
+# -- Chat Schemas --
+
+class ChatMessageBase(BaseModel):
+    role: str
+    content: str
+
+class ChatMessageCreate(ChatMessageBase):
+    pass
+
+class ChatMessageSchema(ChatMessageBase):
+    id: int
+    session_id: int
+    created_at: datetime
+    
+    class Config:
+        from_attributes = True
+
+class ChatSessionBase(BaseModel):
+    name: str
+
+class ChatSessionCreate(ChatSessionBase):
+    processo_id: int
+    context_summary: Optional[str] = None
+
+class ChatSessionInit(BaseModel):
+    evidencias: List[dict] = []
+
+class ChatSessionSchema(ChatSessionBase):
+    id: int
+    created_at: datetime
+    messages: List[ChatMessageSchema] = []
+
+    class Config:
+        from_attributes = True
+
+# -- Processo Schemas --
+
 class ProcessoBase(BaseModel):
     numero_processo: str
     nome_descricao: Optional[str] = None
     caminho_pdf: Optional[str] = None
+    caminho_texto: Optional[str] = None
+    marcador_pagina: Optional[str] = None
 
 class ProcessoCreate(ProcessoBase):
     pass

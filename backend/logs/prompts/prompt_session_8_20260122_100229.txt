@@ -1,0 +1,89 @@
+=== SYSTEM PROMPT + CONTEXT ===
+SYSTEM INSTRUCTION:
+Você é um assistente jurídico/contábil especializado em análise de processos.
+Sua função é auxiliar o usuário respondendo perguntas sobre as evidências encontradas no processo e o conteúdo textual das páginas fornecidas.
+
+CONTEXTO FORNECIDO:
+1. Lista de Evidências: Resumo das evidências filtradas pelo usuário (Notas Fiscais, Trechos mapeados, etc).
+2. Conteúdo das Páginas: O texto completo das páginas onde essas evidências se encontram.
+
+DIRETRIZES:
+- Responda APENAS com base nas informações fornecidas no contexto. Se a informação não estiver lá, diga que não encontrou.
+- Seja conciso e direto, formato profissional.
+- Ao citar valores ou dados, tente referenciar a página ou a evidência de onde tirou a informação.
+- Se houver divergência entre o resumo da evidência e o texto da página, aponte a divergência.
+
+O usuário fará perguntas sobre esse conjunto de dados.
+
+
+CONTEXTO DO PROCESSO:
+RESUMO DAS EVIDÊNCIAS SELECIONADAS NO FILTRO:
+- Tipo: Oscilações de Despesas/Gastos
+  Resumo: Relato sobre os custos adicionais e prejuízos decorrentes da alocação integral de um funcionário ao sistema Totvs, impactando negativamente outras funções e gerando despesas inesperadas.
+  Página Original no PDF: 59
+---
+
+CONTEÚDO TEXTUAL DAS PÁGINAS MENCIONADAS (PARA CONSULTA):
+
+[TEXTO INTEGRAL DA PÁGINA 59]:
+59
+
+
+                           Considerando que a emissão de notas fiscais e
+inserção dos títulos no Contas a Receber apresentaram enormes dificuldades
+operacionais, causando erros frequentes de numeração em relação ao site da
+prefeitura, consumindo tempo e dificultando a rastreabilidade em casos de
+atendimento a garantia e demandando a atenção permanente e não prevista do
+nosso funcionário (documento número D).
+
+
+                           Considerando que a emissão de notas fiscais em
+casos de remessas para garantias ou devoluções dependendo do Estado a
+enviar, necessidades frequentes no nosso ramo de atividade, eram caóticas,
+pois havia a necessidade da emissão se dar no mesmo dia e na maioria das
+vezes ou não tínhamos o suporte do analista da Totvs por estar ocupado ou,
+quando podia nos atender, não apresentava a solução (documento número D).
+
+
+                           Considerando que ao fazermos a análise da
+viabilidade econômica da aquisição do sistema Totvs, projetamos um fluxo de
+caixa no qual era prevista a desativação do sistema V-Soft por ocasião da
+implantação do sistema Totvs, que deveria ocorrer dentro do prazo
+programado, com a consequente eliminação dos pagamentos mensais
+correspondentes, e que devido aos enormes atrasos de implantação e ao
+sofrível desempenho, não foi possível cortar o contrato com a V-Soft, gerando
+um custo mensal não programado por mais de 24 meses.
+
+
+                           Considerando que o nosso funcionário, Sr. Bruno
+Campos, que foi por nós designado como elemento de ligação com a Totvs
+para o acompanhamento da implantação passou a TER que se dedicar em
+tempo integral ao sistema Totvs, como se fosse parte física dos circuitos do
+hardware ou das linhas de programação, numa dependência 100% (cem por
+cento) da sua presença, ou a empresa G. L. Diesel não teria condições de
+operar, e que esta dedicação foi feita em prejuízo das suas outras funções na
+empresa, para as quais foi contratado, gerando prejuízos administrativos e
+custos financeiros para cobrir a sua indisponibilidade;
+
+
+                           Considerando, enfim, que o funcionamento precário,
+insatisfatório e inconsistente do sistema Totvs levou a uma situação de prejuízo
+á Notificante que não pode contar com este suporte para a gestão, além de
+todos os transtornos operacionais:
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:32 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código t4SDIxad.
+------------------------------
+
+
+
+HISTORY:
+[]
+
+USER MESSAGE:
+Com base na evidencia destacada de oscilações de despesas, formule uma argumentação certeira
+
+=== RESPONSE ===
+A alocação integral do funcionário Bruno Campos ao sistema Totvs gerou custos adicionais e prejuízos para a G. L. Diesel. Essa dedicação exclusiva, necessária para manter o sistema Totvs em operação, desviou o funcionário de suas funções originais, resultando em prejuízos administrativos e custos financeiros para cobrir sua indisponibilidade (p. 59). Além disso, a impossibilidade de desativar o sistema V-Soft devido aos atrasos e desempenho insatisfatório do Totvs gerou um custo mensal não programado por mais de 24 meses (p. 59).

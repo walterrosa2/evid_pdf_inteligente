@@ -1,0 +1,1123 @@
+=== SYSTEM PROMPT + CONTEXT ===
+SYSTEM INSTRUCTION:
+Você é um assistente jurídico/contábil especializado em análise de processos.
+Sua função é auxiliar o usuário respondendo perguntas sobre as evidências encontradas no processo e o conteúdo textual das páginas fornecidas.
+
+CONTEXTO FORNECIDO:
+1. Lista de Evidências: Resumo das evidências filtradas pelo usuário (Notas Fiscais, Trechos mapeados, etc).
+2. Conteúdo das Páginas: O texto completo das páginas onde essas evidências se encontram.
+
+DIRETRIZES:
+- Responda APENAS com base nas informações fornecidas no contexto. Se a informação não estiver lá, diga que não encontrou.
+- Seja conciso e direto, formato profissional.
+- Ao citar valores ou dados, tente referenciar a página ou a evidência de onde tirou a informação.
+- Se houver divergência entre o resumo da evidência e o texto da página, aponte a divergência.
+
+O usuário fará perguntas sobre esse conjunto de dados.
+
+
+CONTEXTO DO PROCESSO:
+RESUMO DAS EVIDÊNCIAS SELECIONADAS NO FILTRO:
+- Tipo: Contrato
+  Resumo: Consolidação do contrato da empresa GL BOMBAS DIESEL EIRELI - EPP, adaptada às disposições do novo Código Civil.
+  Página Original no PDF: None
+---
+- Tipo: Contrato
+  Resumo: Menciona a contratação da Totvs S/A, indicando que o documento do contrato está em anexo.
+  Página Original no PDF: 3
+---
+- Tipo: Contrato
+  Resumo: Menciona a alteração do cronograma inicial de instalação do programa, com nova data para 13/05/2016.
+  Página Original no PDF: 4
+---
+- Tipo: Contrato
+  Resumo: Refere-se à notificação enviada à Totvs S/A para que corrigisse os defeitos no sistema, com base na cláusula 13.2 do contrato.
+  Página Original no PDF: 5
+---
+- Tipo: Contrato
+  Resumo: Aponta para a notificação de rescisão do contrato enviada pelas autoras à Totvs S/A, com a data de recebimento pela Ré.
+  Página Original no PDF: 5
+---
+- Tipo: Contrato
+  Resumo: Aponta para a notificação de rescisão do contrato enviada para filial da Totvs S/A, com a data de recebimento pela filial.
+  Página Original no PDF: 5
+---
+- Tipo: Contrato
+  Resumo: Menciona o prazo de 30 dias dado à Totvs S/A para corrigir as falhas no sistema, com base na cláusula 13.2 do contrato.
+  Página Original no PDF: 5
+---
+- Tipo: Contrato
+  Resumo: Refere-se à notificação enviada à Totvs S/A, reiterando o prazo para correção das falhas e a condição de rescisão contratual sem ônus.
+  Página Original no PDF: 10
+---
+- Tipo: Contrato
+  Resumo: Aponta para a data de encerramento do contrato devido aos problemas não solucionados pela Totvs S/A.
+  Página Original no PDF: 11
+---
+- Tipo: Contrato
+  Resumo: Registro da empresa GL DIESEL LTDA - EPP na JUCEMG, sob o número 7536568, datado de 30/10/2019.
+  Página Original no PDF: 31
+---
+- Tipo: Contrato
+  Resumo: Documento que formaliza a alteração e consolidação do contrato social da empresa GL DIESEL LTDA - EPP.
+  Página Original no PDF: 31
+---
+- Tipo: Contrato
+  Resumo: Informações sobre os sócios, endereço e registro da empresa GL DIESEL LTDA - EPP na Junta Comercial.
+  Página Original no PDF: 31
+---
+- Tipo: Contrato
+  Resumo: Decisão dos sócios em alterar o contrato social da empresa, com ênfase na administração a ser exercida por um dos sócios.
+  Página Original no PDF: 31
+---
+- Tipo: Contrato
+  Resumo: Informações sobre a localização da sede da empresa, seu nome oficial e nome fantasia.
+  Página Original no PDF: 32
+---
+- Tipo: Contrato
+  Resumo: Informações sobre o capital social da empresa, a quantidade de quotas e a participação de cada sócio.
+  Página Original no PDF: 33
+---
+- Tipo: Contrato
+  Resumo: Documento de procuração que nomeia Tarcísio de Oliveira Brito como procurador dos outorgantes.
+  Página Original no PDF: 40
+---
+- Tipo: Contrato
+  Resumo: Documento que formaliza a alteração no contrato da empresa GL BOMBAS DIESEL EIRELI - EPP, com identificação do CNPJ e NIRE.
+  Página Original no PDF: 45
+---
+- Tipo: Contrato
+  Resumo: Informa a transferência da titularidade da empresa para um novo titular.
+  Página Original no PDF: 45
+---
+- Tipo: Contrato
+  Resumo: Informações sobre a consolidação da empresa, com dados como CNPJ e NIRE.
+  Página Original no PDF: 46
+---
+
+CONTEÚDO TEXTUAL DAS PÁGINAS MENCIONADAS (PARA CONSULTA):
+
+[TEXTO INTEGRAL DA PÁGINA 3]:
+2
+
+
+EXMO. SR. DR. JUIZ DE DIREITO DA
+VARGINHA/MG.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VARA CÍVEL DA COMARCA DE
+
+
+                         G LÚCIO RETÍFICA DE MOTORES EIRELLI EPP, empresa
+individual de responsabilidade limitada, inscrita no CNPJ/MF sob o nº 25.858.945/0001-
+70, com sede na rodovia BR 491, nº 4.200 - B, Bairro Distrito Industrial JK, Varginha/MG,
+CEP 37.002-970 e MOTORTÉCNICA SERVIÇOS DE MANUTENÇÃO E REPARAÇÃO
+LTDA ME., sociedade por cota de responsabilidade limitada, com seda na Rodovia BR
+491, nº 4.200, Bairro Distrito Industrial JK, cidade de Varginha – MG, CEP.: 37.002-970,
+devidamente inscrita no C.N.P.J/M.F sob o n.º 06.099.819/0001-34, GL DIESEL LTDA.,
+sociedade por cotas de responsabilidade limitada, com sede na rodovia BR 491, nº 4.200
+- A Bairro Distrito Industrial JK, CEP.: 37.002-970, na cidade de Varginha/MG, inscrito no
+C.N.P.J. sob o nº 19.371.426/0001-80 e filial com CNPJ nº 19.371.426/0004-22 e ainda,
+GL BOMBAS DIESEL EIRELLI EPP, empresa individual de responsabilidade limitada,
+com sede na rodovia BR 491, nº 4.200 - B, Bairro Distrito Industrial JK, CEP.: 37.002-970,
+na cidade de Varginha/MG, inscrito no C.N.P.J. sob o nº 00.433.327/0001-57 e com filial
+com CNPJ nº 00.433.327/0002-38, por seu procurador infra-assinado (Doc. 01), vêm à
+presença de V. Exa, com fundamento nos artigos do Código de Processo Civil e Lei nº
+8.078/90 (Código do Defesa do Consumidor) e demais dispositivos de lei aplicados,
+propor a presente
+
+
+
+
+AÇÃO DE REPARAÇÃO CIVIL POR DANO MATERIAL E MORAL
+
+
+
+
+em face de TOTVS – S/A, sociedade anônima de capital aberto, inscrita no CNPJ sob o
+nº 53.113.791/0001-22, com sede na Avenida Braz Leme, nº 1631, 02º andar, bairro
+Jardim São Bento, cidade de São Paulo, Estado de São Paulo, CEP.: 02.511-000, pelas
+seguintes razões de natureza fática e jurídica:
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:29 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código dcJtEJBh.
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 4]:
+3
+
+
+I - DOS FATOS
+
+
+
+                        1.                         As Autoras são empresas privadas dedicadas a seus
+objetos sociais, conforme cópias em anexos.
+
+
+
+                        2.                                                    Desta maneira, as Autores são parte de um grupo de
+
+
+empresas que atuam no mercado em operações conjuntas e complementares, nos
+segmentos de vendas de peças e prestação de serviços de reparos automotivos, sendo
+as seguintes as empresas, além da Autora:
+
+
+
+                        3.                           Constituindo empresas de um mesmo grupo atuando no
+
+
+mesmo segmento, e para uma otimização das ações administrativas, foi criada uma
+estrutura unificada de processamento de dados que utiliza um mesmo sistema “Servidor”,
+ao qual estão conectados todos os computadores das referidas empresas, e que se
+utilizam do mesmo sistema de processamento.
+
+
+
+                        4.                         Nessa condição, as Autoras necessitam e fazes uso de um
+
+
+sistema de software de gestão, sendo tal ferramenta absolutamente indispensável para a
+vida diária das empresas, sendo certo que sem essa ferramenta as mesmas estariam
+fadadas à extinção no mercado.
+
+
+
+                        5.                          Pois bem, temos que destacar que as Autoras vinham
+
+
+utilizando o sistema de gestão fornecido pela empresa V-Software, que atendia
+razoavelmente, mas já defasado e com grandes limitações em razão da evolução das
+empresas, da crescente complexidade dos motores, sistemas de injeção, de direção e
+transmissão veiculares, com maior diversidade de estoques, orçamentos mais detalhados
+e do constante aumento do fluxo de informações.
+
+
+
+                        6.                           Diante da carência de um melhor programa de gestão, em
+
+
+face da necessidade urgente de mecanismos mais versáteis e completos de
+processamento, abrangendo as várias áreas da administração, de forma a tornar possível
+o gerenciamento com mais agilidade e acerto das operações diárias das Autoras, foram
+contratados os serviços da Ré - Totvs S/A (doc. em anexo).
+
+
+
+                        7.                           Em face disso, temos ainda que ressaltar que a contratação
+
+
+dos serviços da Ré se deu, além das razões acima ditas, pelo fato de que o ramo de
+atividade – negócios – das Autoras já sentiam os efeitos de uma crise crescente e
+incontestável da economia brasileira, sendo ainda uma agravante no seu ramo a
+necessidade de acompanhamento da permanente evolução tecnológica dos motores
+eletrônicos, o que já obrigava a constantes investimentos em equipamentos, no
+treinamento de pessoal, adequação de estoques de peças, etc, tudo isto resultando em
+elevação de custos, o que implicava na necessidade premente de um cuidadoso e
+adequado gerenciamento de todos os setores, condição essa essencial para não
+trabalhar com prejuízo.
+
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:29 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código dcJtEJBh.
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 5]:
+4
+
+
+                        8.                         Deste modo, a contratação da prestação de serviços da Ré
+se deu em 08/2015, quando ocorreu a compra do software com os pagamentos mensais
+previstos. Esta contratação foi precedida de uma apresentação das necessidades das
+Contratantes (Autoras), que disponibilizou suas dependências e equipe para que a
+Contratada (Ré) pudesse elucidar suas eventuais dúvidas, observar em tempo real a
+operação das Contratantes e assim desenvolver o seu plano de personalização do
+software, o que é normalmente denominado no mercado como “customização”. Foi
+exposta a estrutura e a forma de operação das 06 (seis) empresas e foi acordado que a
+contratação seria feita em nome da Autora G Lúcio Retífica de Motores EIRELLI EPP,
+mas prevendo a operação de todas as empresas do Grupo, que informariam, sempre que
+requisitado pela Ré, os valores dos faturamentos de cada uma, para que a Ré pudesse
+fazer a composição dos valores a receber das mesmas.
+
+                        9.                         A Ré denomina estas informações de faturamento como
+métricas, sendo certo que a mesma atualizou dessa forma para compor o valor mensal a
+que teria direito, vide documentos em anexo onde consta o faturamento informado das
+Autoras de forma mensal. Conforme a forma de atuação da Ré, o sistema foi oferecido às
+Autoras em três partes, assim discriminadas:
+
+   a- Aquisição do programa básico CDU
+
+   b- Customização e implantação
+
+   c- Mensalidades referentes à manutenção e suporte
+
+                        10.                         Portanto, a contratação do programa – software - da Ré-
+gerou uma grande expectativa de que as limitações do programa anterior seriam de
+vez eliminadas com inquestionável possibilidade de ações rápidas e acertadas,
+uma vez que estas limitações foram explanadas e as necessidades das Autora foram
+explicadas por ocasião da negociação, que foi a base para a Ré estabelecer os seus
+preços e o cronograma de implantação, o que seria - e continua sendo - uma condição de
+sobrevivência das Autoras no mercado de assistência veicular.
+
+
+
+                        11.                         Feitas as análises a Ré propôs um cronograma de
+trabalhos com a instalação do programa prevista para o dia 05/02/2016, o que foi aceito
+pelas Autoras.
+
+
+                        12.                         Conforme documentos em anexo, em 20/01/2016 o
+cronograma foi refeito a pedido da Ré, através de sua filial ou parceira na cidade de
+Pouso Alegre - MG, vindo a ser reprogramada a entrada de funcionamento do programa
+para o dia 13/05/2016, o que foi aceito pelas Autoras e, lamentavelmente, não foi
+cumprido pela Ré.
+
+
+                        13.                         Dentre as alegações da Ré para a não entrada em vigor
+do programa de gestão na segunda data, diga-se de passagem, já comprado pelas
+Autoras, onde a mesma efetuava desde 04/2016 o devido pagamento mensal pelo seu
+uso, estava no fato de que o processo de desenvolvimento não teria atingido a sua
+maturidade necessária!!!
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:29 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código dcJtEJBh.
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 10]:
+9
+
+
+      e)       o Relatório de Quantidades Mínimas de Estoque para Compras funcionou, mas
+de forma incompleta (Documento em anexo de número A);
+
+      f)      o Relatório para Contagem Física do Estoque e Controle de Eventuais
+Inconsistências não funcionou;
+
+      g)       o Relatório de Contas Pagas funcionou, mas de forma incompleta;
+
+      h)       considerando que, nos casos em que a Ré –Totvs- sugeriu a utilização de views
+no Excel, após diversas tentativas esta solução não funcionou de maneira adequada;
+
+      i)      os lançamentos de intermediários (nome x código) não funcionaram e também
+não funcionaram os lançamentos de pagamentos a intermediários, no controle financeiro;
+
+      j)      o sistema não permite da forma requerida o compartilhamento de tabelas entre
+empresas, condição essencial para a operação e que fazia parte da encomenda por
+ocasião da análise feita pelo fornecedor (Documento em anexo de número B);
+
+      l)      o sistema da Ré - uma vez mais divergindo do que foi negociado- operava com
+Orçamento e Ordem de Serviço, o que não contribuía em nada para a agilidade e clareza
+da operação ou – pelo contrário – só piorava, pois uma vez criada a Ordem de Serviço,
+as informações do orçamento ficavam congeladas, obrigando a execução de duas
+consultas;
+
+      m)            o bloqueio de compras sem estar requisitado/locado não funcionou;
+
+      n)       o orçamento impresso a ser apresentado ao cliente estava num tamanho de
+letra absurdamente pequeno, de enorme dificuldade para a leitura e com grande
+potencial para erros de interpretação, completamente inadequados para uma situação de
+negociação (a Autora veio a saber mais tarde que este é o padrão de tamanho adotado
+pela Ré) e que, embora a Autora tenha conseguido resolver o problema do tamanho das
+letras, o lay-out permaneceu inadequado (Documento em anexo de número C);
+
+      o)       o sistema da Ré apresenta uma falha de numeração quando ocorre a inserção
+simultânea de dois ou mais orçamentos, gerando uma lacuna na sequência de números;
+
+      p)       durante uma alteração na customização do cálculo de mark-up o sistema
+passou a calcular os impostos de forma errônea, elevando os preços, e que esta falha
+demandou um tempo além de qualquer razoabilidade para ser corrigida, provocando a
+perda de inúmeras vendas;
+
+      q)       a emissão de notas fiscais e inserção dos títulos no “contas a receber”
+apresentaram enormes dificuldades operacionais, causando erros frequentes de
+numeração em relação aos números das notas fiscais de serviço, consumindo tempo e
+dificultando a rastreabilidade em casos de atendimento às garantias e aos títulos do
+contas a receber, além de demandar a atenção permanente e não prevista de um
+funcionário qualificado da Autora (documento em anexo de número D);
+
+      r)      as emissões de notas fiscais em casos de remessas para garantias ou
+devoluções, dependendo do Estado da Federação a enviar, necessidade frequente no
+ramo de atividade da Autora, eram caóticas, pois havia a necessidade da emissão se dar
+no mesmo dia e na maioria das vezes ou a Autora não tinha o suporte do analista da
+Ré por estar ocupado ou, quando podia atender, não apresentava a solução
+(documento em anexo de número E);
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:29 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código dcJtEJBh.
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 11]:
+10
+
+
+      s)       a numeração da nota fiscal quando era exportada para outra empresa do grupo
+G Lúcio não exportava com a numeração correta, pois o sistema da Ré não lia a
+numeração existente, com a perda da rastreabilidade da nota fiscal e principalmente
+gerando títulos a receber com a numeração errada;
+
+      t)       o sistema requisitava itens sem saldo no estoque, o que gerava vendas
+inexistentes de mercadorias em estoque sem tê-las;
+
+      u)       impressão automática de etiqueta e requisição no momento da liberação, o que
+não ocorre.
+
+
+
+                        37.                           Ora, ínclito Julgador! Ao fazer a análise da viabilidade
+econômica da aquisição do sistema da Ré (Totvs), as Autoras projetaram um fluxo de
+caixa no qual era prevista a desativação do sistema da empresa V-Software por ocasião
+da implantação do novo sistema, o que deveria ocorrer dentro do prazo programado, com
+a consequente eliminação dos pagamentos mensais correspondentes, sendo que, devido
+aos enormes atrasos de implantação e ao sofrível desempenho, não foi possível
+cortar o contrato com a empresa V-Software, gerando um custo mensal não
+programado por mais de 24 meses.
+
+
+                        38.                           Ressalte-se ainda que um dos funcionários da Autora GL
+Diesel Ltda, Sr. Bruno Campos, que fora designado como elemento de ligação com a Ré
+(Totvs) para o acompanhamento da implantação, passou a ter que se disponibilizar em
+tempo integral ao sistema da Totvs, como se fosse parte física dos circuitos do
+hardware ou das linhas de programação, numa dependência 100% (cem por cento) da
+sua presença, ou as Autoras não teriam condições de operar, e que esta dedicação foi
+feita em prejuízo das suas outras funções na empresa GL Diesel Ltda, para as quais fora
+contratado, gerando prejuízos administrativos e custos financeiros para cobrir a sua
+indisponibilidade. Enfatizando que, por incontáveis vezes, o Sr. Bruno Campos teve que
+portar consigo o notebook de trabalho, quando se deslocou para sua residência em
+horário de almoço e descanso, de forma a poder dar suporte às empresas nos
+costumeiros e rotineiros engasgos da operação e; mesmo fora de horário em contato
+remoto com o suporte da Ré em trabalho de solução de problemas.
+
+
+                        39.                           Enfim, o funcionamento precário, insatisfatório e
+inconsistente do sistema da Ré levou a uma situação de prejuízo para as Autoras que
+não podem contar com este suporte para a gestão, além de todos os transtornos
+operacionais, inclusive operando 02 (dois) sistemas simultaneamente, um da Ré e o
+outro da empresa V-Software durante todo o período; pois não poderia parar as suas
+atividades.
+
+
+
+                        40.                             Assim, diante desses problemas insanáveis, houve a
+devida notificação à Ré Totvs, para que no prazo de 30 (trina) dias seguintes
+contados do recebimento da notificação, caso não fossem corrigidas as falhas
+relacionadas e o sistema não estivesse disponibilizado para o uso em plenas condições
+de operação, de acordo com o previsto na cláusula 13.2, cessaria de pleno direito o
+contrato firmado, sem qualquer multa ou indenização por parte das Autoras.
+
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:29 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código dcJtEJBh.
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 31]:
+31
+
+
+    GL DIESEL LTDA - EPP
+
+
+
+
+ALTERAÇÃO E CONSOLIDAÇÃO CONTRATUAL N® 22 DE:
+GL DIESEL LTDA - EPP
+
+
+
+                  mariza LÚCIO NAIA, brasileira, separada judicialmcntc.
+      comerciante, residente e domiciliada à Praça João Gonzaga, n®. 61
+      Berro Centro, CEP 37002-380. Varginha. Minas Gerais, portadora do CPF
+      n° 396.378.246-34 e portadora da carteiro de identidade MG-821.283
+      expedida pola SSPMG. nascida em 31.01.1956 c natural da cidade de
+      Varginha, Minas Gerais.
+
+                  MARCELO LÚCIO NAIA, brasileiro, casado sob o regime de
+      separação total de bens, comerciante, residente e domiciliado à Rua
+      Presidente Antônio Carlos, n°. 118, Bairro Centro. CEP 37002-000.
+      Varginha, Minas Gerais, portador do CPF n® 589.433.826-34 c portador
+      da carteira de identidade M-4.010.919 expedida pela SSPMG. nascido
+      em 09.01.1968 e natural da cidade de Varginha. Minas Gerais.
+
+                  Ambos os sócios estão sendo representados por seu
+      procurador Tarcísio de Oliveira Brito, brasileiro, casado sob o regime dc
+      comunhão parcial de bens, contador, residente e domiciliado ò Rua Dr.
+      Arnaldo Barbosa, n® 46. bairro de Fátima. CEP 37010-290. Varginha.
+      Minas Gerais, portador do CPF 457.414.846-20 e da carteira de
+      Identidade MG-2.620.308 expedida pela SSP/MG. nascido em
+      19/02/1961 e natural da cidade de Campos Gerais, Minas Gerais.
+
+                  Sendo estes os únicos sócios da Sociedade Empresária
+      Limitada GL DIESEL LTDA - EPP. sediada e estabelecida à Rodovia BR 491,
+      n®. 4200, A, Barro Industrial JK. CEP 37002-970, Vargmha, Minas Gerais,
+      com registro na JUCEMG sob n®. 3120134551-5. inscrita no CNPJ sob o n®.
+      19.371.424/0001-80. resolvem de comum acordo e consentimento entre
+      os partes proceder à seguinte alteração contratual, que regerá pelas
+      cláusulas e condições a seguir:
+
+      CLÁUSULA PRIMEIRA: DA ADMINISTRAÇÃO E ATRIBUIÇÕES.
+
+                  A administração da Sociedade empresária limitada será
+      exercida somente pelo sócio Marcelo Lúcio Naia. individualmente, na
+      forma do artigo 1.010 do Código Civil, na qual assumirá Iodos os
+      encargos, e à si competirá representá-la ativa e passivamente, judicial
+      ou extrajudicial mente.
+
+      PARÁGRAFO PRIMEIRO:
+
+
+
+
+ç/j T.O.BRITO
+
+' G e * * A ■ l I | L» 4 L» l
+
+
+
+
+
+Junta Comercial do Estado da Minas Gerais
+
+
+a?^??^^.^.^!.!!^* '^ ³⁰/¹⁰/²⁰¹⁹ <*• Empresa GL DIESEL LTDA -EPP, Mira 31201345515 • protocolo 19-1945656.29110 20
+Autonticaçào FBC3aF9DB686D9F4Dfl62FEa8a68OeD3EE6A50 Marinely 00 Paula Bomfm - SocratAr.a*Goral Páira validar este docun^or
+ã£inad7^^^ ^p "7 "‘ 7f*olocoto ¹ 91*8^.565-6 • o Código do wgurança r*Y| Ett. COp-a foi Outorga 0.^1,^.
+as.»inaoa em 30/10/2019 por Marinely de Paula Bomftm - Sec/etàna-GcraL
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:30 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código PCZfxImq.
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 32]:
+32
+
+
+    GL DIESEL LTDA - EPP
+
+
+II
+
+
+          Ambos os sócios terão poderes de representação, de forma
+individualizada, da sociedade em órgãos públicos, como Secretario da
+Fazenda Estadual de Minas Gerais, Delegacia da Receita Federal.
+Delegacia do Ministério do Trabalho, Delegacia do INSS, Prefeitura
+Municipol. Caixa Econômica Federal, Juntas Comerciais, Sindicatos,
+Cooperativas e outros órgãos públicos ou instituições privadas como
+bancos, bem como em perante à Justiça e em audiências, afim de
+discutir, desistir, transigir, fazer acordos, assinar os respectivos
+documentos necessários, podendo tomar ciência e decisões de tudo
+que vier a ser do interesse da sociedade.
+
+PARÁGRAFO SEGUNDO:
+
+
+         Todos os documentos que envolvem responsabilidade
+social poderão ser assinados individualmente por um dos sócios,
+inclusive movimentação bancário, exceto aqueles pertencentes ao
+patrimônio da sociedade, contração de dívidas e ônus que deverão ser
+assinados em conjunto por todos os sócios.
+
+CONSOLIDAÇÃO CONTRATUAL
+
+CLÁUSULA PRIMEIRA: DA DENOMINAÇÃO SOCIAL E SEDE
+
+         A Sociedade Empresária Limitada tem sede e foro na
+cidade de Varginha, Minas Gerais, à Rodovia BR 491. n*. 4200 A, bairro
+Industrial JK, CEP 37002-970, com a denominação social de GL DIESEL
+LTDA - EPP e nome de fantasia "GL DIESEL".
+
+Parágrafo Único:
+
+
+           A Sociedade Empresária Limitada possui uma filial à Rua
+Marcelo Cárceres, n° 50, bairro Jardim Califórnia, Pouso Alegre, Minas
+Gerais, CEP 37550-000. tendo iniciado suas atividades em 16/04/2012.
+
+CLÁUSULA SEGUNDA: DO OBJETIVO SOCIAL
+
+           Constitui objetivo da Sociedade Empresária Limitada à
+exploração do ramo de atividade de:
+
+  • Comércio varejista de peças e acessórios novos para veículos
+     automotores
+
+  • Serviços de manutenção e reparação de caminhões, ônibus e
+     outros veículos pesados e serviços de manutenção e reparação
+     de automóveis.
+
+
+^ T.O.BRITO
+
+'    CONTABILIDADE
+
+
+
+
+Junla Comercial do Estado de Minas Gerais
+
+Cert.nco registro 50b o n’ 7538568 em 30/1072019 da Empresa GL DIESEL LTDA -EPP. Nire 31201 345515 e protocolo 194445656 - 28/10/20
+Autenticação; P8C38EBOB6ô6O8F4D362FEÔB86aOBB3FF6A5O Marinely de Paul* Bomfim - Secretèria-Geral. Para vai,dar este documer
+acosse http i/w-^jucemg mg.gov br e informe n' do protocolo 19/484.565-6 o o código de segurança rsYI Esta oópia foi autenticada ilioitalment
+Mamada cm 30/10/2019 por Marinely de Paula Bomfim - Secrelária-Geral
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:30 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código PCZfxImq.
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 33]:
+33
+
+
+    GL DIESEL LTDA - EPP
+
+
+III
+
+
+  •  Comércio varejista de máquinas, aparelhos e equipamentos de
+     uso agropecuário, suas peças e acessórios.
+
+CLÁUSULA TERCEIRA: DO PRAZO DE DURAÇÃO
+
+          O prazo de duração da Sociedade Empresária Limitada é
+por tempo indeterminado, sendo que o início de suas atividades sociais
+foi no dia 01 de Maio de 1977.
+
+CLÁUSULA QUARTA: DO CAPITAL SOCIAL
+
+           O capital social é de R$ 425.000,00 (quatrocentos e vinte e
+cinco mil reais) divididos em 425.000 (quatrocentos e vinte e cinco mil)
+quotas de valor nominal de R$ 1,00 (um real) cada uma delas, que são
+assim distribuídas:
+
+|               PARTICIPANTE __    %    QUOTAS   VALOR      VALOR TOTAL     
+MARCELO LÚCIO NAIA              91.00%  336.750 RS 1,00 RS    384 750 00    
+MARIZA LÚCIO NAIA                9,00%   38.250 RS    1,00 R$     38.250,00  
+[totais                         100,00% 425.000         RS 42$.000,00       
+
+Parágrafo Primeiro:
+
+
+            A integralizaçao do capital social foi realizada em moeda
+corrente nacional no ato da assinatura do documento de constituição.
+
+Parágrafo Segundo:
+
+            A responsabilidade de cada sócio é restrita ao valor de suas
+quotas, mas todos respondem solidoriamente pela integralização do
+capital social, conforme receitua o artigo 1.052 do Código Civil/2002 -
+Lei 10.406/2002.
+
+CLÁUSULA QUINTA: DA ADMINISTRAÇÃO E ATRIBUIÇÕES
+
+            A administração da Sociedade empresária limitada será
+exercida somente pelo sócio Marcelo Lúcio Naia, individualmente, na
+forma do artigo 1.010 do Código Civil, na qual assumirá todos os
+encargos, e à si competirá representá-la ativa'e passivamente, judicial
+ou extrajudicialmente.
+
+Parágrafo Primeiro:
+
+
+
+(fj r.O.BRITO
+
+COKTABUIDADt
+
+
+/^S^s'* Junta Comercial do Estado de Minas Gerais
+
+                '"S*®¹™ ®ob ° "* ⁷⁵³⁶&⁶8 «c 30/10/2019 da Empresa GL DIESEL LTDA -EPP. Nice 3120134 5515 o protocolo 194845656 - 28/10/201
+    • AuloCcaçáo F8C38E8DB686D8F4O862FE8886BDBB3EE6A50. Marinely de Paula Bomf.m - SacraLària-Geral Para validar aste documant
+    acessa htlpv/www jucemg^^ e informe n* do protocolo 19/484.565-6 a o código de segurança r»YI Esta cópia foi autenticada digitalmente
+    assinada em 30/10/2019 por Marinely de Paula Bomfim - Secretária-Gorai
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:30 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código PCZfxImq.
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 40]:
+40
+
+
+PROCURAÇÃO
+
+
+OUTORGANTES:
+
+
+Gcri-i •               ^C'° NAtA. bnir.ite.ra, sçp.v.id 1 ;.„’„ I.ilmento. comerciante, rei .dento e c< ,,.<,l.n<!n A Prnça João
+
+                                          CCP ³⁷W>2-3âd. V.uimha. M„,.₎₃ Go,^. podado.,, do CrF «• 3^ 373 ?;^?.: e
+* 7a ’dcrMl<tóA? * ^-as' 2*3 erpcil 3 ^L. S5PMG. n.rM.I-, . ... 31 3M3bf, c n., uml da c..l.ríO ^
+• cnV^k.~2^G^ffl,<í⁻ r"';>l —”--r .■'■' '■ "■*’.• ^ MARCELO LÚCIO NAIA. hms.luro, canado sob o mjH.e
+rep vTr.no rn\‘ wbⁿⁿs' ,:w”‘-rc,*l’to. nrski.mt- e c.>iukl..₁t. ã Rua Presidente Anl. -.m Cartea, n" 118, Pai.rn C.
+4Dirr.in ’° , ,^^^ M™⁸ Go'-’"S- P 'Indor dti CPF n 5d9.433.LCG-34 e ppd.idtw da cariar,-, d.- .dentrt„.jₙ M-
+tnlHltnífiwfeóm ^ * "³ ^ S*PMG. «JfrC do cm 09.01 19JH c natural ria cúLiüo rte Vanjiutm. Minas Gerais, cnm.t
+
+
+LTDA                           LÚCIO NAIA, ac-nm jA e .ril 'c. ... r,i|v untantn Ca sue.’ í ide er-i,-'rasar,,-, I.-.!■>•’ . GL D5CSEL
+
+ao, T.' „ , « ³:‘⁰W⁵S’-S> "'S^W noC\PJ r.-il>n’ 1?.371.420W.iM-W.. 3. d ütia c cs.atx cc ,l.i a Rm.^..1 .R
+      ' n 4200. A. Ba.rro Industrial JK, CLP 37002-970, V^nh., m™. Gerais.
+
+
+LU
+Q
+E
+O
+
+
+OUTORGADO:
+
+      ,TA?C,'’IO₁ DE OLIVEIRA ORITO. bra.A rro, c.' . ■ In. contador. rcuidenlc o ilumict..>dó na c»l. I
+lrk-«<t> 'ArcaMo t>.-.rl;ar..i . -.' 41. baino dQ FuHma. CLP 37.C1C-290. poitador da tódul.i 3
+Jc.nt.uxie MG-2.G..0.M3. expedida paf, PCMG u CPF n» 457.414.846-20. e-nm.l iol . li<.;: M.< /:>.:„.
+
+
+0)
+
+
+—            ,ⁿs,HWⁿcⁿt? pancu ar. os era Otrforç.intns constituem procurador o outorgado. a quem cimr-.f
+
+^ L              ^ ^'Ua •■’■■:"•■''■ olP>) 'to Cu>i:-.s;m.o. nhor.xõcü de endereço. c.^MI. «;<H<vo. umm et-w.-r .1
+
+r.               eⁿ fCl a e -'''da de sós cs. .allcraçòca CarCraia.ús (rr-nsfeiuncia quotas. .><lnMi)islr.>Çr,n. Ir.iLirivu,
+
+n            a T.'^^'¹ ,ⁿ"’’"í’ «feclar.xão cm d--, nP. I,m..nta, rerr.>lific.x io. comuracaçõo do ktrmloru. mento c d..
+
+EPP /‘r^^ ' Z'^⁰-¹- c^^sfio riu soefedado civ,i enquadramento, dwtcnqundramento o rocnquadrnnxnto ME u
+cón o md .                ^lendo. neste caso. Lver a m^xãrs do responsável pelo ativo o passivo da sociu.tarta, b m
+
+rina?.X ?dH T’ ⁿorcⁱl,“,s ew "O™ «ps mrtor.wntcs). Ironsformação <:„ t,ₚₒ jurídico, reriuarin.ontn c
+"’-' ^"'^ 'WR ...................................................  * ^ D- (eoeu-^-to tklcn Ac cr.tr.,...,), r.apa
+
+integrai,- T' ^ ba"ír ^ '; dCⁱ’ⁿⁿⁱs ⁿt°3. contendo dol.boraçâoC&M) sobro ac;u=si^o
+de qtwas. dar o recobor citações o outra» materias iradas ₐ m)
+X*rXs£^                                        rⁿ’"C ³ J“ⁿ,a C⁽'"™' <>° Estada de M.nnS Gerais - JUCEMG. nas
+
+⁰ D^'9”^ ^ W'.M.dade de sócios ou UuUr. podendo ainda o r,utmü..............................................................
+d^arvcd-^                               noccSSór«₅ A tn^ção do ato respectivo, praticado;-, com o W₅O dc cerr.^o
+
+cumeL o <;'tL^^^                       ° ^^'-'^ '^ poderes ora conferidos, enfim, p-oücar todos os 0103 ₀₀ temí c
+
+^torGanₗₒ                    ?      “ h’'¹'^''⁰' ^^ ⁰ procurador sujeito * prCSₗₐçiₒ de contas ₅C roque,ido'^.
+
+
+cm
+có
+
+
+<n
+
+-ra
+
+
+CM
+
+O
+
+CM
+
+
+CM
+O
+CM
+
+
+CM
+
+
+m
+
+
+CM
+
+
+E
+d)
+w
+o
+
+
+05
+
+W
+O
+
+
+o
+w
+w
+0)
+o
+o
+
+
+O
+
+
+o
+0)
+E
+p
+
+
+M&iza Lúcio Noía
+ÇP>:/396.37a24e-3*
+
+
+
+
+
+Varg nha. 10 do Outubro de 2019.
+
+
+« 5
+
+
+í&sSí
+
+
+X
+
+
+UI
+
+
+fe^só^-i-j, w^wíteSihP
+
+
+«• V«r0HH|
+
+
+RM*nrw<*. *er «urinticiaMa.
+
+
+2
+
+0)
+
+
+Marcelo Lu cio Nato
+CPF: 5*19.4 33.826-14
+
+
+o
+
+Q
+
+
+0)
+E
+
+
+GL Diesel Lida - Mü
+Marçvlu Lúcia Njui
+CPF: 539.433.820-34
+
+
+rt^W^
+
+
+«UUfc?w^"'!nM Mariza Lúcio Naia
+
+
+Vif^rM^MG. 24iio<2C'f   .
+
+          IfLO CCMuiT*
+          COOlGO >6 5 jRASC
+
+
+     AJM)©»
+
+
+San
+
+
+®L Diesel Lida - ME, representada pai*
+
+
+•^t ' <«y’
+
+
+MUA km Uai*
+
+
+05 W
+
+
+£
+
+I
+
+
+Anal R| T 06.10# R| o 10
+i k ri» / m^s urj vt r
+
+
+•a> -e
+
+-©-■o
+
+
+VwglMWMG. Mnaagit._______,_______
+
+SíLOCONSLAr* DCRUJ"«T~
+
+CÔOIGO «□URANÇ» •meíMÍMJ-
+
+
+Arr :t | txM c 1K »t »o- S«r.» y^,*'„ ^.g,,^
+
+
+
+
+
+co
+cn
+O
+D
+
+
+'-
+
+
+CriUO
+
+^^.1.
+
+
+
+
+
+5'.
+ãS
+
+
+R*ii rj«*~?3Òs?i(:C^’
+— t ■««íw.njwil-rís-
+
+
+$
+O
+
+I
+
+
+
+
+
+E d
+
+ra <n
+
+
+SSL Junta Comercial do Estado de Minas Gerais                                                                           § 3
+
+^Certifico re^.suo sob o n* 7536568 em 30/10/2019 da Empresa GL DIESEL LTDA EPP. Nir» 31201345515 e protocolo 194845656 - 2BM0/20ll £
+
+Wí’,—* ^ Paula Bemtim - Secret^-Go.al Pare va, dar            J ~
+
+   acesse httpj/^juce^              ₑ Informe n- do protocolo 19/484.565-6 e o côd.go de segurança rsYI Esta cópia Io- autenticada dig.Ulmenlel
+
+   aasmada em 30/10/2019 por Marlntriy de Paula Bomfim - Secretâna-Geral                                           ⁹       ®
+
+
+
+
+
+o
+o
+
+2
+
+05
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 45]:
+45
+
+
+ALTERAÇÃO CONTRATUAL
+“GL BOMBAS DIESEL E1RELI - EPP"
+CNPJ n° 00 433 327/0001-57
+' NIRE n* 31600182661
+
+
+MARIZA LÚCIO NAIA, brasileira, separada ludicialmcntc, comerciante, residente c
+domiciliada na Praça JoSo Gonzaga, 61, Centro, CEP 3 7 002-3 80, Varginha. Minas Gerais,
+portadora do CPF n* 396.378 246-34 e da Carteira de identidade n* MG 82! 283, expedida pela
+SSPMG, nascida cm 31/01/1956 e natural da cidade de Varginha, estado de Minas Gerais,
+
+
+titular da Empresa Individual de Responsabilidade Limitada, que gtra sob a denominação de GL
+BOMBAS DIESEL E1REL! - EPP, inscrita na Junta Comercial do Estado de Minas Gerais sob o
+NIRE n* 31600182661 e no CNPJ sob n* 00 433 327/0001-57, com sede na Rodovia BR 491, n°
+4200-B. Bairro Industrial JK, cidade de Varginha, Estado de Minas Gerais, CEP 37 002-970,
+resolve promover a presente alteração para transmitir a titularidade para o novo titular EDUARDO
+AMÉRCIO LÚCIO NAIA, mediante as seguintes cláusulàs
+
+
+   I.       DA TRANSFERÊNCIA DE TITULARIDADE
+
+         Transfere-se a titularidade da Empresa Individual de Responsabilidade Limitada á
+EDUARDO AMÉRICO LÚCIO NAIA. brasileiro, casado sob o regime parcial de bens,
+engenheiro mecânico, portador da carteira de identidade n° M-2 786.036. expedida pela SSP/MG,
+inscrito no CPF sob o n’ 516 676 146-49, nascido em 02 de maio de 1964 natural de
+Vargmha(MG), filho de Américo Rodrigues Naia e Maria Aparecida Lúcio Naia. residente e
+domiciliado em á Rua Luiz Ferreira Campos, n* 191, bairro Campos Eliseos. CEP 37 018-400,
+RETIRANDO-SE. neste ato, MARIZA LÚCIONAIA
+
+
+   2.       DA ADMINISTRAÇÃO
+
+         A titularidade da empresa será exercida por EDUARDO AMÉRICO LÚCIO NAIA,
+acima qualificado, com a designação de Administradora, com os poderes e atribuições de
+representação ativa e passiva, judicial ou extrajudicial, podendo praticar os atos compreendidos no
+objeto, sempre no interesse da empresa, autorizado o uso do nome empresarial, vedado, no
+entanto, fazê-lo em atividades estranhas ao interesse social
+
+
+rSgjN Junta Comercial OO Estado de Minas o*»» „,_ . _      _. ROMBAS niESEL EIRELI - EPP Nira 31600182661 • protocolo 152439234 ■
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:31 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código 0K5swqAs.
+
+
+digitalmante e asamada em 24/04/2015 por Marineiy do Paula Bomfim - Sacratona-Ger.l.                          :^[ítói$ p«9 ^
+------------------------------
+
+[TEXTO INTEGRAL DA PÁGINA 46]:
+46
+
+
+
+
+
+   3.         DAS DISPOSIÇÕES GERA IS
+
+            As demais cláusulas e condições permanecem inalteradas na forma do ato
+  consolidado
+
+
+
+  Em virtude das alterações, fica aprovada a CONSOLIDAÇÃO que passa a vigorar com a seguinte
+  redação, |á adaptada ás disposições do novo Código Civil, Lei 10.406 de 10/01/02:
+
+
+
+CONSOLIDAÇÃO DA EMPRESA INDIVIDUAL DE RESPOSANBILIDADE LIMITADA
+“GL BOMBAS DIESEL EIRELI - EPP”
+
+CNPJ n" 00 433 327/0001-57
+
+NIRE n° 31600182661
+
+
+  DA DENOMINAÇÃO
+
+           Cláusula 1*. A empresa tem o nome empresarial de GL BOMBAS DIESEL ElRELl
+
+
+^'xs
+
+. .DO OBJETIVO
+
+
+          Cláusula 2‘. Constitui objetivo da empresa a exploração do ramo de atividade de:
+
+
+a
+
+
+  Comércio varejista de peças e acessórios novos para veículos automotores
+
+   Serviços de manutenção e reparação de caminhões, ônibus e outros veículos pesados e
+  serviço de manutenção e reparação de automóveis
+
+
+  ‘DA SEDE
+
+   ' ‘Cláusula 3*. A empresa tem sua sede, administração e foro juridico em Varginha
+  Minas Gerais, na Rodovia BR 491, n° 4200-B, Bairro Industrial JK, CEP 37.002-970
+
+
+Parágrafo Único A empresa tem uma filial na Rua Marcelo Cárceres, n° 50. bairro
+Jardim Califórnia, Pouso Alegre, Minas Gerais, CEP: 37 550-000, com inicio de suas atividades
+
+
+2
+
+
+t^S^oTeS^^                                       4- ^P— GL BOMBAS DIESEL ElRELl • EPP. Nir. 31600182661 .protocolo 152439234 -
+
+
+Este documento é cópia do original, assinado digitalmente por ROSELY SEVAIOS ALVES DOS SANTOS, liberado nos autos em 05/07/2024 às 13:31 .
+
+Para conferir o original, acesse o site https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do, informe o processo 0032109-24.2024.8.26.0100 e código 0K5swqAs.
+
+
+       aigitalmenie e «Minada em 24/0*2015 por Marinely de Paula Bonfim - Secretána-Geral.
+
+
+pàg 3/7
+------------------------------
+
+
+
+HISTORY:
+[]
+
+USER MESSAGE:
+Faça um resumo dos pontos principais de evidencias de contrato identificadas
+
+=== RESPONSE ===
+Com base nas evidências de contrato identificadas no contexto fornecido, os pontos principais são:
+
+*   **Contratação da Totvs S/A:** As autoras contrataram a Totvs S/A para um sistema de software de gestão (página 3).
+*   **Cronograma de Implantação:** Houve alteração no cronograma inicial de instalação do programa, com nova data para 13/05/2016 (página 4).
+*   **Notificações à Totvs S/A:** As autoras notificaram a Totvs S/A para corrigir defeitos no sistema, com base na cláusula 13.2 do contrato, dando um prazo de 30 dias (páginas 5 e 11).
+*   **Rescisão Contratual:** As autoras notificaram a Totvs S/A sobre a rescisão do contrato devido a problemas não solucionados (página 5).
+*   **Problemas no Sistema:** Diversos problemas no sistema foram apontados, afetando a operação das empresas (páginas 9 e 10).
+*   **Custos Adicionais:** A não implementação do sistema da Totvs no prazo causou a manutenção do contrato com a V-Software, gerando custos não programados (página 11).
+*   **Alterações Contratuais da GL DIESEL LTDA - EPP:** Houve alterações e consolidação do contrato social da empresa GL DIESEL LTDA - EPP, incluindo informações sobre sócios, endereço, capital social e administração (páginas 31, 32 e 33).
+*   **Procuração:** Foi nomeado um procurador para representar os sócios da empresa (página 40).
+*   **Alteração Contratual da GL BOMBAS DIESEL EIRELI - EPP:** O contrato da empresa GL BOMBAS DIESEL EIRELI - EPP foi alterado, transferindo a titularidade para um novo titular (página 45).

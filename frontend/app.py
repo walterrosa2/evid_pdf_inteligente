@@ -4,7 +4,12 @@ import pandas as pd
 import json
 from datetime import datetime
 
-API_URL = "http://localhost:8000"
+import os
+
+# No Railway, o frontend precisa saber onde o backend está.
+# Se não estiver setado, assume localhost para desenvolvimento local.
+API_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+
 
 st.set_page_config(layout="wide", page_title="Leitor Inteligente")
 
@@ -107,6 +112,11 @@ def page_novo_processo():
         map_file = st.file_uploader("Planilha Mapeamento (Opcional)", type="xlsx")
         cat_file = st.file_uploader("Planilha Catalogador (Opcional)", type="xlsx")
         
+        st.markdown("---")
+        st.markdown("###### Configuração de Texto para IA (Chatbot)")
+        txt_file = st.file_uploader("Arquivo Texto Extraído (Opcional - Required for Chat)", type="txt")
+        marker = st.text_input("Marcador de Página (ex: [[PAGINA]])", help="String usada para separar as páginas no arquivo texto.")
+        
         submitted = st.form_submit_button("Cadastrar Processo")
         
         if submitted:
@@ -116,8 +126,9 @@ def page_novo_processo():
                 files = [('file_pdf', pdf_file)]
                 if map_file: files.append(('file_mapeamento', map_file))
                 if cat_file: files.append(('file_catalogador', cat_file))
+                if txt_file: files.append(('file_texto', txt_file))
                 
-                payload = {"numero": numero, "nome": nome}
+                payload = {"numero": numero, "nome": nome, "marcador_pagina": marker}
                 
                 with st.spinner("Enviando e Processando..."):
                     resp = api_post("processos", data=payload, files=files)
@@ -213,7 +224,7 @@ def page_dashboard():
             completo = original.get('trecho') or original.get('conteudo') or ""
             
             # Buttons Row
-            b1, b2 = st.columns(2)
+            b1, b2, b3 = st.columns([1,1,1])
             if b1.button("👁️ PDF", key=f"btn_pdf_{ev['source_type']}_{ev['id']}"):
                 st.session_state['pdf_page'] = ev['pagina_inicial']
                 st.session_state['pdf_highlight'] = completo
@@ -241,6 +252,87 @@ def page_dashboard():
                                 st.markdown(data[field])
 
                 show_details(original, ev['source_type'])
+
+            if b3.button("📄 Copiar", key=f"btn_txt_{ev['source_type']}_{ev['id']}"):
+                # Fetch text content
+                page_num = ev['pagina_inicial']
+                if not page_num:
+                    st.warning("Página não definida.")
+                else:
+                    resp_txt = api_get(f"processos/{selected_proc_id}/pagina_texto", params={"pagina": page_num})
+                    if resp_txt and 'conteudo' in resp_txt:
+                        @st.dialog(f"Texto da Página {page_num}", width="large")
+                        def show_text_copy(txt):
+                            st.text_area("Conteúdo", value=txt, height=400)
+                            st.info("Ctrl+C para copiar.")
+                        show_text_copy(resp_txt['conteudo'])
+                    else:
+                        st.error("Não foi possível obter o texto (Verifique se o arquivo texto foi enviado).")
+
+    # -- Chatbot Section --
+    st.sidebar.markdown("---")
+    with st.sidebar.expander("💬 Chatbot Especializado", expanded=False):
+        # Session Management
+        # Check if we have an active session for this process
+        if 'chat_session_id' not in st.session_state or st.session_state.get('chat_proc_id') != selected_proc_id:
+            st.session_state['chat_session_id'] = None
+            st.session_state['chat_proc_id'] = selected_proc_id
+            st.session_state['chat_messages'] = []
+        
+        # Button to Start New Session with Current Filter
+        if st.button("✨ Iniciar Nova Sessão com Filtro Atual"):
+            # Prepare payload (evidences)
+            # We send the filtered 'evidencias' list to create the context
+            # To avoid huge payload, we pick only ID and Page info if possible, but our backend expects the list to build summary.
+            # Let's clean the list a bit to minimal required fields if needed, or send as is.
+            # Backend expects List[dict] matching schema... roughly. It uses .get() so loose dict is fine.
+            
+            with st.spinner("Criando contexto..."):
+                resp = api_post(f"processos/{selected_proc_id}/chat_sessions", data={"evidencias": evidencias}) # Using 'data' as body for pydantic model? requests.post(json=...)
+                # Wait, api_post helper uses json=data. Correct.
+                
+                if resp and resp.status_code == 200:
+                    session_data = resp.json()
+                    st.session_state['chat_session_id'] = session_data['id']
+                    st.session_state['chat_messages'] = [] # Reset local msgs
+                    st.success("Sessão iniciada!")
+                    st.rerun()
+                else:
+                    st.error("Falha ao criar sessão.")
+
+        # Chat Interface
+        if st.session_state['chat_session_id']:
+            # Load History if empty
+            if not st.session_state['chat_messages']:
+                msgs = api_get(f"chat_sessions/{st.session_state['chat_session_id']}/messages")
+                if msgs:
+                    st.session_state['chat_messages'] = msgs
+            
+            # Display Chat
+            chat_container = st.container(height=400)
+            with chat_container:
+                for msg in st.session_state['chat_messages']:
+                    with st.chat_message(msg['role']):
+                        st.markdown(msg['content'])
+            
+            # Input
+            if prompt := st.chat_input("Pergunte sobre as evidências..."):
+                # Optimistic UI
+                st.session_state['chat_messages'].append({"role": "user", "content": prompt})
+                with chat_container:
+                     with st.chat_message("user"):
+                        st.markdown(prompt)
+                
+                # Send to Backend
+                payload = {"role": "user", "content": prompt}
+                resp = api_post(f"chat_sessions/{st.session_state['chat_session_id']}/messages", data=payload)
+                
+                if resp and resp.status_code == 200:
+                    ai_msg = resp.json() # {"role": "assistant", "content": "..."}
+                    st.session_state['chat_messages'].append(ai_msg)
+                    st.rerun() # To refresh UI properly inside sidebar?
+                else:
+                    st.error("Erro ao enviar mensagem.")
 
     # -- Main Content (PDF Viewer Only) --
     st.subheader(f"Visualizador: {curr_proc['numero_processo']}")

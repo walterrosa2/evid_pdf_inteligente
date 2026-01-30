@@ -37,3 +37,21 @@ O usuário identificou duas dores principais na interface atual:
 - [ ] **Refatorar Layout Principal (Colapso)**
     - [ ] Criar botões de ícone para "Recolher" e "Expandir" a coluna lateral.
     - [ ] Ajustar lógica de renderização para garantir que o PDF ocupe `layout="wide"` real quando focado.
+
+-------------------------------------------------------------------
+Lista de melhorias:
+Na versão atual precisaremos de tres frentes de requisitos:
+1) Criar chatbot especializado no processo atual:
+- Na base de cadastro já teremos: Processo em pdf, planilha com mapeamento, planilha catalogada das evidencias, e precisaremos inserir arquivo texto resultado da extração (item 3)
+- Após o usuário selecionar o filtro Tipo Evidência ou Busca Textual, com base no resultado (lista de evidencias) para o contexto, será mostrado do lado um chatbot especializado no processo e evidencias filtradas
+- Quando o usuário digitar uma pergunta sobre as evidencias filtradas do processo, será enviado ao motor LLM os detalhes das evidencias mais as paginas do processo em texto
+- A aplicação vai selecionar as paginas conforme detalhe dos processos, cada evidencia tem a pagina registrada do processo, assim ficará fácil selecionar o texto e enviar junto com os detalhes das evidencias
+- O chat será armazenado usando o nome de registro, ou seja, precisaremos dar um nome para cada chat iniciado, assim será possível posteriormente consultar o conteúdo do chat
+
+2) Ao selecionar uma evidencia e clicar em pdf é mostrado do lado a pagina em pdf que temos a evidencia, agora precisaremos criar um botão para que o usuário possa copiar o conteúdo da pagina. Esse botão vai acionar o arquivo processo em texto e copiar o conteúdo da pagina e disponibilizar ao usuário (CTRC c + CTRV v)
+
+3) Atualmente a versão não possibilita o upload do arquivo TEXTO do processo. Iremos então fazer essa opção de upload e a partir disso iremos armazenar o arquivo texto do processo e usá-lo tanto para enviar ao LLM (agente chatbot) quanto disponibilizar para o usuário no botão que sera criado (item 2)
+
+
+
+

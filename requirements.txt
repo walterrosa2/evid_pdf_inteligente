@@ -10,3 +10,9 @@ python-dotenv
 openai
 passlib[bcrypt]
 python-jose[cryptography]
+
+google-generativeai
+flask
+flask_cors
+escavador
+python-docx

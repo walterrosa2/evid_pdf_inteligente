@@ -1,9 +1,10 @@
+import os
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
-
-# SQLite database URL
-SQLALCHEMY_DATABASE_URL = "sqlite:///./leitor_inteligente_v2.db"
+# No Railway, usaremos volumes para persistência. 
+# DATA_PATH pode apontar para o diretório montado.
+DATA_PATH = os.getenv("DATA_PATH", "./")
+DB_NAME = "leitor_inteligente_v2.db"
+SQLALCHEMY_DATABASE_URL = f"sqlite:///{os.path.join(DATA_PATH, DB_NAME)}"
 
 # Create engine
 engine = create_engine(
