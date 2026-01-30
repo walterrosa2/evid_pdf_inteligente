@@ -1,10 +1,7 @@
 [build]
 builder = "nixpacks"
 
-[services.backend]
-command = "python -m uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
-healthcheck_path = "/docs"
+[install]
+cmds = ["python -m venv .venv", ". .venv/bin/activate", "pip install -r requirements.txt"]
 
-[services.frontend]
-command = "streamlit run frontend/app.py --server.port $PORT --server.address 0.0.0.0"
-healthcheck_path = "/_stcore/health"
+# O comando de start será gerenciado pelo Procfile ou configurado manualmente no Railway.
