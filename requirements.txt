@@ -16,3 +16,4 @@ flask
 flask_cors
 escavador
 python-docx
+streamlit
