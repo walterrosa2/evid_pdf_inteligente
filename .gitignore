@@ -50,4 +50,4 @@ backend/logs/
 # We should probably ignore them.
 
 # Backend specific
-backend/static/uploads/
+# backend/static/uploads/

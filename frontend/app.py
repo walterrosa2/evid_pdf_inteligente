@@ -348,8 +348,14 @@ def render_pdf_viewer(processo, height="800px"):
     current_page = st.session_state.get('pdf_page', 1)
     highlight_text = st.session_state.get('pdf_highlight', '')
     
-    full_pdf_url = f"{API_URL}/static/{processo['caminho_pdf']}"
-    viewer_url = f"{API_URL}/static/viewer.html?file={full_pdf_url}&page={current_page}&highlight={highlight_text}"
+    # Limpar API_URL de barras no final
+    base_url = API_URL.rstrip('/')
+    
+    # Limpar caminho_pdf de barras no início
+    pdf_path = processo['caminho_pdf'].lstrip('/')
+    
+    full_pdf_url = f"{base_url}/static/{pdf_path}"
+    viewer_url = f"{base_url}/static/viewer.html?file={full_pdf_url}&page={current_page}&highlight={highlight_text}"
     
     st.markdown(
         f'<iframe src="{viewer_url}" width="100%" height="{height}" style="border: none;"></iframe>',
