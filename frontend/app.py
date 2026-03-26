@@ -8,7 +8,7 @@ import os
 
 # No Railway, o frontend precisa saber onde o backend está.
 # Se não estiver setado, assume localhost para desenvolvimento local.
-API_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+API_URL = os.getenv("BACKEND_URL", "http://localhost:8003")
 
 
 st.set_page_config(layout="wide", page_title="Leitor Inteligente")

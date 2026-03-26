@@ -1,0 +1,30 @@
+services:
+  # 1. Backend API (FastAPI)
+  backend:
+    build: .
+    container_name: leitor_backend
+    # Nota: Usamos 8513 conforme solicitado pelo usuário
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8513
+    ports:
+      - "8513:8513"
+    env_file: .env
+    volumes:
+      - ./logs:/app/logs
+      - .:/app # Mapeia a raiz para persistir arquivos .db locais
+    restart: unless-stopped
+
+  # 2. Frontend (Streamlit)
+  frontend:
+    build: .
+    container_name: leitor_frontend
+    # Nota: Usamos 8514 conforme solicitado pelo usuário
+    command: streamlit run frontend/app.py --server.port 8514 --server.address 0.0.0.0 --server.headless true
+    ports:
+      - "8514:8514"
+    env_file: .env
+    depends_on:
+      - backend
+    volumes:
+      - ./logs:/app/logs
+      - .:/app
+    restart: unless-stopped

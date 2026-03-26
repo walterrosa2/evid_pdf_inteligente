@@ -66,19 +66,19 @@ Write-Host "   Iniciando Backend (Uvicorn)...         " -ForegroundColor Magenta
 Write-Host "------------------------------------------" -ForegroundColor Magenta
 
 # Monta o comando para abrir o uvicorn em outra janela, garantindo que use o venv e o pythonpath
-$backendCmd = "-NoExit -Command & '$venvScript'; $env:PYTHONPATH='$PSScriptRoot'; python -m uvicorn backend.main:app --reload --port 8000"
+$backendCmd = "-NoExit -Command & '$venvScript'; $env:PYTHONPATH='$PSScriptRoot'; python -m uvicorn backend.main:app --reload --port 8003"
 Start-Process powershell -ArgumentList $backendCmd
 
 Write-Host "==> Backend iniciado (janela separada)." -ForegroundColor Green
 
-Write-Host "==> Aguardando Backend iniciar na porta 8000..." -ForegroundColor Cyan
+Write-Host "==> Aguardando Backend iniciar na porta 8003..." -ForegroundColor Cyan
 
 $maxRetries = 30
 $retryCount = 0
 $backendReady = $false
 
 while ($retryCount -lt $maxRetries) {
-    $conn = Test-NetConnection -ComputerName localhost -Port 8000 -InformationLevel Quiet
+    $conn = Test-NetConnection -ComputerName localhost -Port 8003 -InformationLevel Quiet
     if ($conn) {
         $backendReady = $true
         break
@@ -89,7 +89,7 @@ while ($retryCount -lt $maxRetries) {
 }
 
 if (-not $backendReady) {
-    Write-Warning "AVISO: O Backend nao respondeu na porta 8000 apos 60 segundos."
+    Write-Warning "AVISO: O Backend nao respondeu na porta 8003 apos 60 segundos."
     Write-Warning "O Frontend pode falhar ao conectar."
     # Nao aborta, tenta abrir o frontend mesmo assim, mas avisa o usuario
 }

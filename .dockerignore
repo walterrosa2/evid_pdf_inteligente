@@ -1,0 +1,41 @@
+# .dockerignore para Leitor Inteligente (Padrão walterrosa2)
+
+# Ambientes locais
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs e Dados persistentes (devem estar em volumes no servidor)
+logs/
+.run/
+*.log
+*.sqlite
+*.db
+*.db-journal
+*.xlsx
+data/
+output/
+
+# Arquivos sensíveis
+.env
+
+# Git
+.git
+.gitignore
+
+# Documentação de deploy (Railway/Outros)
+railway.toml
+Procfile
+RAILWAY_DEPLOY.md
+ACOMPANHAR_DEPLOY.md
+
+# Regra: Ignorar todos os .txt exceto requirements.txt
+*.txt
+!requirements.txt
+
+# GitHub
+.github/
