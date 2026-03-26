@@ -22,6 +22,9 @@ services:
     ports:
       - "8514:8514"
     env_file: .env
+    environment:
+      - BACKEND_URL=http://backend:8513
+      - PUBLIC_BACKEND_URL=${PUBLIC_BACKEND_URL:-http://localhost:8513}
     depends_on:
       - backend
     volumes:

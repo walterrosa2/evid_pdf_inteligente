@@ -9,6 +9,8 @@ import os
 # No Railway, o frontend precisa saber onde o backend está.
 # Se não estiver setado, assume localhost para desenvolvimento local.
 API_URL = os.getenv("BACKEND_URL", "http://localhost:8003")
+# URL pública usada para conteúdo renderizado no navegador do usuário (como o iFrame do PDF)
+PUBLIC_API_URL = os.getenv("PUBLIC_BACKEND_URL", API_URL)
 
 
 st.set_page_config(layout="wide", page_title="Leitor Inteligente")
@@ -348,8 +350,8 @@ def render_pdf_viewer(processo, height="800px"):
     current_page = st.session_state.get('pdf_page', 1)
     highlight_text = st.session_state.get('pdf_highlight', '')
     
-    # Limpar API_URL de barras no final
-    base_url = API_URL.rstrip('/')
+    # Limpar API_URL de barras no final (Usar URL PÚBLICA para o Iframe no navegador)
+    base_url = PUBLIC_API_URL.rstrip('/')
     
     # Limpar caminho_pdf de barras no início
     pdf_path = processo['caminho_pdf'].lstrip('/')
